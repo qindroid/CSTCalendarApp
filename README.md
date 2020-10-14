@@ -21,7 +21,8 @@ Content of the project folder:
  Top level of project folder: 
 ├── .gitignore               # Git ignore file
 ├── index.html               # landing HTML file, this is what users see when you come to url
-└── README.md
+├── README.md
+├── calendar.html            # created by Sheng Qin. A calendar HTML file, this is a calendar page
 
 It has the following subfolders and files:
 ├── .git                     # Folder for git repo
@@ -41,5 +42,3 @@ Firebase hosting files:
 Tips for file naming files and folders:
 * use lowercase with no spaces
 * use dashes (not underscore) for word separation
-
-Sheng Qin calendar.html
