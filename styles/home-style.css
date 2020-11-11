@@ -1,0 +1,45 @@
+.bg-primary {
+    background-color: #1A4A9C !important;
+}
+
+.wrapper > div{
+    padding: 1em;
+}
+
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-auto-rows: minmax(100px, auto);
+    grid-gap: 1em;
+    justify-items: stretch;
+    align-items: stretch;
+    
+}
+
+.recent-updates-header {
+    background: #bcc3cc;
+    display: grid;
+    grid-column: 1/4;
+    grid-row: 1/2;
+}
+
+#recent-updates-heading {
+    font-size: 28pt;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.recent-updates-notifications {
+    display: grid;
+    grid-column: 1/4;
+    grid-row: 2/3;
+}
+
+#recent-updates-notifications-text {
+    font-size: 18pt;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
