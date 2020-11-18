@@ -36,17 +36,45 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="login.html">Calendar <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="calendar.html">Calendar <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="login.html">Assignments</a>
+                    <a class="nav-link" href="assignments.html">Assignments</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="login.html" tabindex="-1" aria-disabled="false">Schedule</a>
+                    <a class="nav-link " href="error-page.html" tabindex="-1" aria-disabled="false">Schedule</a>
                 </li>
             </ul>
         </div>
     </nav>
+    <!----------------------------------------------->
+    <!-- Forms to add courses    -->
+    <!----------------------------------------------->
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Course Information</h1>
+          <div class="lead">
+            <form id="add-course-info">
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Course Name</label>
+                  <input type="coursename" class="form-control" id="exampleFormControlInput1" name="crsName" placeholder="Course Name">
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Details</label>
+                  <input type="coursename" class="form-control" id="exampleFormControlInput1" name="crsDetail" placeholder="Details">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Schedule</label>
+                    <input type="coursename" class="form-control" id="exampleFormControlInput1" name="crsSchedule" placeholder="Schedule">
+                </div>
+                <button>Add</button>
+              </form>
+          </div>
+        </div>
+      </div>
+      <ul id="courselist">Course List</ul>
+
 
     <!----------------------------------------------->
     <!-- JS: Boostrap, Firebase, API related    -->
@@ -70,6 +98,7 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         const db = firebase.firestore();
+        db.settings({ timestampsInSnapshots: true });
 
     </script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
@@ -78,6 +107,7 @@
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
+    <script src="scripts/courses.js"></script>
 
     <!--------------------------------------------------------------------->
     <!-- JS files: Your own JavaScript functions included here    -->

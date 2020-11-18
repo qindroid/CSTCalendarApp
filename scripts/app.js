@@ -9,6 +9,7 @@ studentInfoForm.addEventListener('submit', (e) =>{
         STU_SET: studentInfoForm.set.value,
         STU_EMAIL: studentInfoForm.email.value,
         STU_NICKNAME: studentInfoForm.nickname.value
+    
     });
     studentInfoForm.studentName.value = '';
     studentInfoForm.set.value = '';
