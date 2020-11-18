@@ -1,82 +1,78 @@
-const signUpButton = document.getElementById('signUp');
-const signInButton = document.getElementById('signIn');
-const container = document.getElementById('container');
+window.onload = function () {
+  const signUpButton = document.getElementById('signUp');
+  const signInButton = document.getElementById('signIn');
+  const container = document.getElementById('container');
 
-signUpButton.addEventListener('click', () => {
-	container.classList.add("right-panel-active");
-});
-
-signInButton.addEventListener('click', () => {
-	container.classList.remove("right-panel-active");
-});
-
-const auth = firebase.auth();
-const studentInfoForm = document.querySelector('#signup-form');
-
-studentInfoForm.querySelector('#sign-up').addEventListener('sign-up', function(e) {
-  //e.preventDefault();
-  db.collection('student').add({
-      STU_NAME: studentInfoForm.signupName.value,
-      STU_SET: studentInfoForm.signupSet.value,
-      STU_EMAIL: studentInfoForm.signupEmail.value,
-      STU_NICKNAME: studentInfoForm.signupNickname.value
+  signUpButton.addEventListener('click', () => {
+    container.classList.add("right-panel-active");
   });
-  studentInfoForm.signupName.value = '';
-  studentInfoForm.signupSet.value = '';
-  studentInfoForm.signupEmail.value = '';
-  studentInfoForm.signupNickname.value = '';
-  studentInfoForm.signupPassword.value = '';
-  
-  var signupEmail = document.getElementById("signupEmail");
-  var signupPassword = document.getElementById("signupPassword");
-  const signupPromise = auth.createUserWithEmailAndPassword(signupEmail.value, signupPassword.value)
-  signupPromise.catch(e => alert(e.message));
-  alert("Signed up successfully!");
-  
-});
 
-document.querySelector('#sign-in').addEventListener('click', function(e) {
-  firebase.auth().signInWithEmailAndPassword(email, password)
-  .then((user) => {
-    // Signed in 
-    // ...
-  })
-  .catch((error) => {
-    var errorCode = error.code;
-    var errorMessage = error.message;
+  signInButton.addEventListener('click', () => {
+    container.classList.remove("right-panel-active");
   });
-  
-  // Step 2
-  //  Get a credential with firebase.auth.emailAuthProvider.credential(emailInput.value, passwordInput.value)
-  //  If there is no current user, log in with auth.signInWithCredential(credential)
-  //  If there is a current user an it's anonymous, atttempt to link the new user with firebase.auth().currentUser.link(credential) 
-  //  The user link will fail if the user has already been created, so catch the error and sign in.
-});
-/*
-function login(){
-    var email = document.getElementById("email");
-    var password = document.getElementById("password");
-    const promise = auth.signInWithEmailAndPassword(email.value, password.value)
-    window.location = 'home.html';
-    promise.catch(e => alert(e.message));
-    alert("Signed in successfully!");
-};
 
 
 
-studentInfoForm.addEventListener('submit', (e) =>{
-  e.preventDefault();
-  db.collection('student').add({
-      STU_NAME: studentInfoForm.signupName.value,
-      STU_SET: studentInfoForm.signupSet.value,
-      STU_EMAIL: studentInfoForm.signupEmail.value,
-      STU_NICKNAME: studentInfoForm.signupNickname.value
+
+
+
+  const auth = firebase.auth();
+  const studentSignUpForm = document.querySelector('#signup-form');
+  const studentSignInForm = document.querySelector('#signin-form');
+  const signupButtonForm = document.getElementById("sign-up-button");
+  const signinButtonForm = document.getElementById("sign-in-button");
+
+  //SIGNUP FUNCTION WORKS
+  //NEED TO VALIDATE USER INPUT
+  signupButtonForm.addEventListener('click', function () {
+
+    var name = studentSignUpForm.name.value;
+    var email = studentSignUpForm.email.value;
+    var pass = studentSignUpForm.password.value;
+    if (!email || !pass) {
+      return alert("Email and password both required!");
+    }
+    const signUpPromise = firebase.auth().createUserWithEmailAndPassword(email, pass)
+    if(signUpPromise.catch(function(error) {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      alert(errorMessage);
+      }))
+    {
+      const hi = "hi";
+    } else {
+      alert("Welcome to the CST family ", name, "!");
+    }
+
+    //THIS WRITES IT TO THE DATABASE; DONT CHANGE
+    db.collection('student').add({
+      STU_NAME: studentSignUpForm.name.value,
+      STU_SET: studentSignUpForm.set.value,
+      STU_EMAIL: studentSignUpForm.email.value,
+      STU_NICKNAME: studentSignUpForm.nickname.value
+    });
   });
-  studentInfoForm.signupName.value = '';
-  studentInfoForm.signupSet.value = '';
-  studentInfoForm.signupEmail.value = '';
-  studentInfoForm.signupNickname.value = '';
-  studentInfoForm.signupPassword.value = '';
-  window.location = 'home.html';
-});
-*/
+
+  //SIGN IN AUTHENTICATION; DONT TOUCH
+  signinButtonForm.addEventListener('click', function () {
+
+    var name = studentSignInForm.name.value;
+    var email = studentSignInForm.email.value;
+    var pass = studentSignInForm.password.value;
+    if (!email || !pass) {
+      return alert("Email and password both required!");
+    }
+    const signInPromise = firebase.auth().signInWithEmailAndPassword(email, pass)
+    if(signInPromise.catch(function(error) {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      alert(errorMessage);
+      })){
+      const hi = "hi";
+    } else{
+      alert("Welcome back ", name, "!");
+    }
+   
+  });
+
+}
