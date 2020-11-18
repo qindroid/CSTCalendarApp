@@ -1,6 +1,7 @@
 
-
+/*
 //saving student information
+const studentInfoForm = document.querySelector('#signup-form');
 studentInfoForm.addEventListener('submit', (e) =>{
     e.preventDefault();
     db.collection('student').add({
@@ -13,5 +14,4 @@ studentInfoForm.addEventListener('submit', (e) =>{
     studentInfoForm.set.value = '';
     studentInfoForm.email.value = '';
     studentInfoForm.nickname.value = '';
-
-})
+})*/

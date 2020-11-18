@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <h2>CST Schedular</h2>
+    <h2>CST Scheduler</h2>
     <div class="container" id="container">
         <div class="form-container sign-up-container">
             <form action="home.html" id="signup-form">
@@ -27,7 +27,7 @@
                 <input type="text" name="set" id="signupSet" placeholder="Your Class Set *">
                 <input type="email" name="email" id="signupEmail" placeholder="Your Email *">
                 <input type="password" name="password" id="signupPassword" placeholder="Your Password *">
-                <button id="submit" onclick="signup();">Sign Up</button>
+                <button id="sign-up">Sign Up</button>
             </form>
         </div>
         <div class="form-container sign-in-container">
@@ -35,7 +35,7 @@
                 <h1>Sign in</h1>
                 <input type="email" id="email" placeholder="Email" />
                 <input type="password" id="password" placeholder="Password" />
-                <button onclick="login();">Sign In</button>
+                <button id="sign-in">Sign In</button>
             </form>
         </div>
         <div class="overlay-container">
@@ -76,6 +76,7 @@
     </script>
     <script src="scripts/firebase_api.js"></script>
     <script src="scripts/index.js"></script>
+    <!--<script src="scripts/app.js"></script> -->
     
 
     <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
