@@ -112,15 +112,15 @@
 
             .all {
                 display: inline-block;
-                
+
                 width: 1201px;
-                
+
             }
 
             .left {
                 width: 33%;
                 float: right;
-                
+
 
             }
 
@@ -246,7 +246,7 @@
             display: inline-block;
             font-size: 1.5vw;
             width: 98%;
-            
+
         }
 
         .firstline {
@@ -280,6 +280,54 @@
 
         #textmonth {
             margin-left: 5%;
+        }
+
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            padding-top: 100px;
+            /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%;
+            text-align: center;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -738,7 +786,7 @@
             </div>
 
 
-
+            
 
 
 
@@ -866,7 +914,15 @@
 
     </div>
 
+    <div id="myModal" class="modal">
 
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Task add success!</p>
+        </div>
+
+    </div>
 
 
 
@@ -907,11 +963,11 @@
     <!-- JS files: Your own JavaScript functions included here    -->
     <!--------------------------------------------------------------------->
     <script>
-        var date;
-        var month;
-        var taskname;
-        var details;
-        var tasktype;
+        var date = "default";
+        var month = "default";
+        var taskname = "default";
+        var details = "default";
+        var tasktype = "default";
         var i = 0;
         // var database = firebase.database();
         // var starCountRef = firebase.database().ref('posts/' + postId + '/starCount');
@@ -959,6 +1015,32 @@
             //add button and add stuff from textfield
             $('#add').click(function () {
                 console.log("test");
+
+                // Get the modal
+                var modal = document.getElementById("myModal");
+
+                // Get the button that opens the modal
+                var btn = document.getElementById("add");
+
+                // Get the <span> element that closes the modal
+                var span = document.getElementsByClassName("close")[0];
+
+                // When the user clicks the button, open the modal 
+                btn.onclick = function () {
+                    modal.style.display = "block";
+                }
+
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function () {
+                    modal.style.display = "none";
+                }
+
+                // When the user clicks anywhere outside of the modal, close it
+                window.onclick = function (event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
 
                 $('.date.col-1').each(function (index) {
                     console.log($(this).text() === date);
