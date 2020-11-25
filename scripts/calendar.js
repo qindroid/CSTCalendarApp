@@ -1,116 +1,121 @@
-var date;
-var month;
-var taskname;
-var details;
-var tasktype;
-var i = 0;
-// var database = firebase.database();
-// var starCountRef = firebase.database().ref('posts/' + postId + '/starCount');
-// starCountRef.on('value', function (snapshot) {
-//     updateStarCount(postElement, snapshot.val());
-// });
-$(document).ready(function () {
+var date = "default";
+        var month = "default";
+        var taskname = "default";
+        var details = "default";
+        var tasktype = "default";
+        var i = 0;
+        // var database = firebase.database();
+        // var starCountRef = firebase.database().ref('posts/' + postId + '/starCount');
+        // starCountRef.on('value', function (snapshot) {
+        //     updateStarCount(postElement, snapshot.val());
+        // });
+        $(document).ready(function () {
 
-  console.log($("span.col-1").text());
-  //read tasks data from firebase
+            console.log($("span.col-1").text());
+            //read tasks data from firebase
 
-  // read input from textfield
-  $("select.month").change(function () {
-    month = $(this).children().children("option:selected").val();
-    console.log(month);
-  });
-
-
-  $("select.date").change(function () {
-    date = $(this).children().children("option:selected").val();
-    console.log(date);
-
-  });
-
-  $("select.tasktype").change(function () {
-    tasktype = $(this).children().children("option:selected").val();
-    console.log(tasktype);
-  });
-
-  $("input.taskname").change(function () {
-    taskname = $(this).val();
-    console.log(taskname);
-  });
+            // read input from textfield
+            $("select.month").change(function () {
+                month = $(this).children().children("option:selected").val();
+                console.log(month);
+            });
 
 
-  $("input.details").change(function () {
-    details = $(this).val();
-    console.log(details);
-  });
+            $("select.date").change(function () {
+                date = $(this).children().children("option:selected").val();
+                console.log(date);
 
-  console.log("Hello world!");
+            });
 
+            $("select.tasktype").change(function () {
+                tasktype = $(this).children().children("option:selected").val();
+                console.log(tasktype);
+            });
 
-
-  //add button and add stuff from textfield
-  $('#add').click(function () {
-    console.log("test");
-
-    $('.date.col-1').each(function (index) {
-      console.log($(this).text() === date);
-
-      if ($(this).text() === date) {
-        $(this).parent().parent().append(
-          '<a class="event d-block p-1 pl-2 pr-2 mb-1 rounded text-truncate small bg-success text-white" title="Test Event">' +
-          taskname + '</a>');
-
-      }
-    });
-
-  });
-
-  //delete button delete checked checkbox
-  $('#delete').click(function () {
-    console.log("test");
-    $(".checkbox input:checked").parent().parent().remove();
-
-  });
-  var taskForm = document.querySelector("task-form");
-  //add firebase databases
-  $("#add").on("click", function () {
-    
-    db.collection('tasks').add({
-
-      month: month.valueOf(),
-
-      date: taskForm.date.valueOf(),
-
-      type: taskForm.tasktype.valueOf(),
+            $("input.taskname").change(function () {
+                taskname = $(this).val();
+                console.log(taskname);
+            });
 
 
-      taskname: taskForm.taskname.valueOf(),
+            $("input.details").change(function () {
+                details = $(this).val();
+                console.log(details);
+            });
 
-
-      detail: details.valueOf(),
-
-    });
-    console.log(taskForm.month.value,taskForm.date.value)
-  });
-});
+            console.log("Hello world!");
 
 
 
-$(document).ready(function () {
+            //add button and add stuff from textfield
+            $('#add').click(function () {
+                console.log("test");
 
-});
+                // Get the modal
+                var modal = document.getElementById("myModal");
 
-/* 
-//WRITE TO THE RECENT UPDATES SECTION
-const functions = require('firebase-functions');
+                // Get the button that opens the modal
+                var btn = document.getElementById("add");
 
-exports.useWilcard = functions.firestore
-  .document('tasks/{documentId}')
-  .onCreate((change, context) => {
+                // Get the <span> element that closes the modal
+                var span = document.getElementsByClassName("close")[0];
 
-    const newTask = snap.data();
+                // When the user clicks the button, open the modal 
+                btn.onclick = function () {
+                    modal.style.display = "block";
+                }
 
-    var recentUpdate = document.getElementById("recent_update1");
-    recentUpdate.innerHTML = newTask.taskname + " " + date + "/" + data + " " + detail;
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function () {
+                    modal.style.display = "none";
+                }
 
-    /* ... 
-  });*/
+                // When the user clicks anywhere outside of the modal, close it
+                window.onclick = function (event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+
+                $('.date.col-1').each(function (index) {
+                    console.log($(this).text() === date);
+
+                    if ($(this).text() === date) {
+                        $(this).parent().parent().append(
+                            '<a class="event d-block p-1 pl-2 pr-2 mb-1 rounded text-truncate small bg-success text-white" title="Test Event">' +
+                            taskname + '</a>');
+
+                    }
+                });
+
+            });
+
+            //delete button delete checked checkbox
+            $('#delete').click(function () {
+                console.log("test");
+                $(".checkbox input:checked").parent().parent().remove();
+
+            });
+
+            //add firebase databases
+            $("#add").on("click", function (event) {
+                db.collection("tasks").doc().set({
+
+                    month: month.valueOf(),
+
+                    date: date.valueOf(),
+
+                    type: tasktype.valueOf(),
+
+                    taskname: taskname.valueOf(),
+
+                    detail: details.valueOf(),
+                });
+            });
+        });
+
+
+
+        $(document).ready(function () {
+
+        });
