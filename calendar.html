@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
     <!-- Optional styles and scripts of your own -->
+<<<<<<< HEAD
     <link rel="stylesheet" href="styles/style.css">
     
     <!-- datepicker for calendar on pop-up -->
@@ -286,6 +287,10 @@
             margin-left: 5%;
         }
     </style>
+=======
+    <link rel="stylesheet" href="styles/calendar.css">
+    
+>>>>>>> 9ccce154954d63ead065ca10fb2a5fc6f6c099ed
 </head>
 
 <body>
@@ -311,6 +316,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " href="error-page.html" tabindex="-1" aria-disabled="false">Schedule</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " tabindex="-1" aria-disabled="false" id="logout-button">Logout</a>
                 </li>
             </ul>
         </div>
@@ -723,83 +731,28 @@
 
 
 
-                <div class="container1">
-                    <h6></h6>
-
-
-                    <!-- Load icon library -->
-                    <link rel="stylesheet"
-                        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-                    <!-- The form -->
-                    <form class="example" action="main.html" style="margin-bottom: 10px">
-                        <button id="refresh" onClick="window.location.reload();">Refresh</button>
-                        <input type="text" placeholder="Search.." name="search">
-                        <button type="submit"><i class="fa fa-search"></i></button>
-                    </form>
-                </div>
 
             </div>
 
 
-
+            
 
 
 
             <div class="left">
                 <div class="container1">
+                <div class="recent-updates">
                     <h3>Recent Update</h3>
-                    <div class="container">
-                        <div class="recent_update1">
-                            1
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="recent_update2">
-                            2
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="recent_update3">
-                            3
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="recent_update4">
-                            4
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="recent_update5">
-                            5
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="recent_update6">
-                            6
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="recent_update7">
-                            7
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="recent_update8">
-                            8
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="recent_update9">
-                            9
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="recent_update10">
-                            10
-                        </div>
-                    </div>
+                    <table id="recent-updates-table"><center>
+                        <tr>
+                            <th>Course</th>
+                            <th>Name</th>
+                            <th>Date</th>
+                        </tr>
+                    </center>
+                    </table>
                 </div>
+            </div>
                 <div class="container1">
 
                     <div class="container4">
@@ -870,7 +823,15 @@
 
     </div>
 
+    <div id="myModal" class="modal">
 
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Task add success!</p>
+        </div>
+
+    </div>
 
 
 
@@ -882,21 +843,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
 
-    <script>
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-            apiKey: "AIzaSyCEW_XfFO4Pxta8xDhMKhD-0f11TGvUzxo",
-            authDomain: "projectcst-4cf74.firebaseapp.com",
-            databaseURL: "https://projectcst-4cf74.firebaseio.com",
-            projectId: "projectcst-4cf74",
-            storageBucket: "projectcst-4cf74.appspot.com",
-            messagingSenderId: "630036074523",
-            appId: "1:630036074523:web:2706463e85eeb37c6928be"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        const db = firebase.firestore();
-    </script>
+    <script src="scripts/firebase_api.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
     </script>
@@ -910,103 +857,7 @@
     <!--------------------------------------------------------------------->
     <!-- JS files: Your own JavaScript functions included here    -->
     <!--------------------------------------------------------------------->
-    <script>
-        var date;
-        var month;
-        var taskname;
-        var details;
-        var tasktype;
-        var i = 0;
-        // var database = firebase.database();
-        // var starCountRef = firebase.database().ref('posts/' + postId + '/starCount');
-        // starCountRef.on('value', function (snapshot) {
-        //     updateStarCount(postElement, snapshot.val());
-        // });
-        $(document).ready(function () {
-
-            console.log($("span.col-1").text());
-            //read tasks data from firebase
-
-            // read input from textfield
-            $("select.month").change(function () {
-                month = $(this).children().children("option:selected").val();
-                console.log(month);
-            });
-
-
-            $("select.date").change(function () {
-                date = $(this).children().children("option:selected").val();
-                console.log(date);
-
-            });
-
-            $("select.tasktype").change(function () {
-                tasktype = $(this).children().children("option:selected").val();
-                console.log(tasktype);
-            });
-
-            $("input.taskname").change(function () {
-                taskname = $(this).val();
-                console.log(taskname);
-            });
-
-
-            $("input.details").change(function () {
-                details = $(this).val();
-                console.log(details);
-            });
-
-            console.log("Hello world!");
-
-
-
-            //add button and add stuff from textfield
-            $('#add').click(function () {
-                console.log("test");
-
-                $('.date.col-1').each(function (index) {
-                    console.log($(this).text() === date);
-
-                    if ($(this).text() === date) {
-                        $(this).parent().parent().append(
-                            '<a class="event d-block p-1 pl-2 pr-2 mb-1 rounded text-truncate small bg-success text-white" title="Test Event">' +
-                            taskname + '</a>');
-
-                    }
-                });
-
-            });
-
-            //delete button delete checked checkbox
-            $('#delete').click(function () {
-                console.log("test");
-                $(".checkbox input:checked").parent().parent().remove();
-
-            });
-
-            //add firebase databases
-            $("#add").on("click", function (event) {
-                db.collection("tasks").doc().set({
-
-                    month: month.valueOf(),
-
-                    date: date.valueOf(),
-
-                    type: tasktype.valueOf(),
-
-                    taskname: taskname.valueOf(),
-
-                    detail: details.valueOf(),
-                });
-            });
-        });
-
-
-
-        $(document).ready(function () {
-
-        });
-    </script>
+    <script src="scripts/calendar.js"></script>
 </body>
 
 </html>
