@@ -32,18 +32,19 @@ window.onload = function () {
     if (!email || !pass) {
       return alert("Email and password both required!");
     }
-    const signUpPromise = firebase.auth().createUserWithEmailAndPassword(email, pass)
-    if(signUpPromise.catch(function(error) {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      alert(errorMessage);
-      }))
-    {
-      const hi = "hi";
-    } else {
-      alert("Welcome to the CST family ", name, "!");
-    }
+    /*
+        const signUpPromise = firebase.auth().createUserWithEmailAndPassword(email, pass)
+        if (signUpPromise.catch(function (error) {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            alert(errorMessage);
+          }))
 
+          //const hi = "hi";
+        else {
+          alert("Welcome to the CST family ", name, "!");
+        }
+    */
     //THIS WRITES IT TO THE DATABASE; DONT CHANGE
     db.collection('student').add({
       STU_NAME: studentSignUpForm.name.value,
@@ -62,17 +63,39 @@ window.onload = function () {
     if (!email || !pass) {
       return alert("Email and password both required!");
     }
+
+    firebase.auth().signInWithEmailAndPassword(email, pass)
+      .then((user) => {
+        //var user = firebase.auth().currentUser;
+        var name, email, photoUrl, uid, emailVerified;
+
+        if (user != null) {
+          name = user.displayName;
+          email = user.email;
+        }
+        alert("Welcome back ", name, "!");
+        window.location = "/home.html";
+        // ...
+      })
+      .catch((error) => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        alert(errorMessage);
+      });
+
+    /*
     const signInPromise = firebase.auth().signInWithEmailAndPassword(email, pass)
-    if(signInPromise.catch(function(error) {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      alert(errorMessage);
-      })){
+    if(signInPromise){
+      signInPromise.catch(function(error) {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        alert(errorMessage);
+      })
       const hi = "hi";
     } else{
       alert("Welcome back ", name, "!");
-    }
-   
-  });
+      window.open(home.html)
+    }*/
 
+  });
 }

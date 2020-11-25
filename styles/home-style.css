@@ -18,13 +18,14 @@
 }
 
 .recent-updates-header {
-    background: #bcc3cc;
+    background: #c7dfff;
     display: grid;
     grid-column: 1/4;
     grid-row: 1/2;
 }
 
 #recent-updates-heading {
+    margin-top: 10pt;
     font-size: 28pt;
     text-align: center;
     justify-content: center;
@@ -42,4 +43,32 @@
     text-align: center;
     justify-content: center;
     align-items: center;
+}
+table, th, td {
+    text-align: center;
+    border: 2px solid black;
+    padding: 1em;
+  }
+
+  @media (max-width:768px) {
+
+    table, th, td {
+        text-align: center;
+        border: 1px solid black;
+        padding: 0rem;
+        overflow-x: auto;
+        overflow-y: auto;
+        font-size:9pt;
+      }
+      td {
+        width:0.1%;
+        white-space: wrap;
+        } 
+  }
+
+  /* Sortable tables */
+table.sortable thead {
+    background-color:#eee;
+    font-weight: bold;
+    cursor: pointer;
 }

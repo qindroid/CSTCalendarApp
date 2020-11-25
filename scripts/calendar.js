@@ -82,8 +82,7 @@ var date = "default";
 
                     if ($(this).text() === date) {
                         $(this).parent().parent().append(
-                            '<a class="event d-block p-1 pl-2 pr-2 mb-1 rounded text-truncate small bg-success text-white" title="Test Event">' +
-                            taskname + '</a>');
+                            `<a class=\\"event d-block p-1 pl-2 pr-2 mb-1 rounded text-truncate small bg-success text-white\\" title=\\"Test Event\\">${taskname}</a>`);
 
                     }
                 });
@@ -113,6 +112,35 @@ var date = "default";
                 });
             });
         });
+
+        logoutBtn = document.getElementById("logout-button");
+        logoutBtn.addEventListener('click', function () {
+          firebase.auth().signOut().then(function() {
+            alert("Signed out successfully!");
+            window.location = 'index.html';
+            // Sign-out successful.
+          }).catch(function(error) {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            alert(errorMessage);
+            // An error happened.
+          })});
+
+
+          var query = db.collection('tasks').orderBy("date", "desc");
+            query.get().then((s) => {
+    
+            var n = 0;
+            s.forEach(function(x){
+               $("#recent-updates-table").append(`
+         
+                
+                  <tr><td>`+ x.data().course +`</td><td>` + x.data().taskname +`</td><td>` + x.data().date + '/' + x.data().month + `</td></tr>
+         `);
+         
+               n += 1;
+            });
+         });
 
 
 
