@@ -58,7 +58,19 @@
             <form id="add-course-info">
                 <div class="form-group">
                   <label for="exampleFormControlInput1">Course Name</label>
-                  <input type="coursename" class="form-control" id="exampleFormControlInput1" name="crsName" placeholder="Course Name">
+
+                  <select class="custom-select" name="crsName">
+                    <option value="">Courses</option>
+                    <option value="1113 - Applied Math">1113 - Applied Math</option>
+                    <option value="2dfdf">1116 - Business Comm.</option>
+                    <option value="3">1510 - Java Programming</option>
+                    <option value="4">1712 - Business Analysis</option>
+                    <option value="5">1537 - Web Development</option>
+                    <option value="6">1800 - Project 1</option>
+                    <option value="6">1100 - Fundamentals</option>
+                </select>
+
+                  <input type="coursename" class="form-control" id="exampleFormControlInput1"  placeholder="Course Name">
                 </div>
                 <div class="form-group">
                   <label for="exampleFormControlInput1">Details</label>
@@ -66,7 +78,11 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Schedule</label>
-                    <input type="coursename" class="form-control" id="exampleFormControlInput1" name="crsSchedule" placeholder="Schedule">
+                    
+                    <input type="text" class="form-control" data-toggle="datepicker" name="crsSchedule" placeholder="Due Date">
+
+                    
+                    <input type="coursename" class="form-control" id="exampleFormControlInput1" placeholder="Schedule">
                 </div>
                 <button>Add</button>
               </form>
