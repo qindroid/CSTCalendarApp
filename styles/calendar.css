@@ -361,3 +361,270 @@
                 } 
               
           }
+          .bg-primary {
+            background-color: #005fbd !important;
+        }
+
+        @media (max-width:575px) {
+            .display-4 {
+                font-size: 1.5rem;
+            }
+
+            .day h5 {
+                background-color: #f8f9fa;
+                padding: 3px 5px 5px;
+                margin: -8px -8px 8px -8px;
+            }
+
+            .date {
+                padding-left: 4px;
+            }
+
+            .all {
+                display: inline-block;
+                width: 100%;
+
+
+
+            }
+
+            .container4 h3 {
+                margin-top: 0.5vw;
+                font-size: 3vw;
+                font-weight: bold;
+                float: left;
+            }
+
+            .container4 button {
+                float: left;
+                width: 19%;
+                height: 5vw;
+                margin-left: 1.2vw;
+                font-size: 1vw;
+            }
+        }
+
+        @media screen and (min-width: 576px) and (max-width: 1200px) {
+            .day {
+                height: 14.2857vw;
+            }
+
+            .all {
+                display: inline-block;
+                width: 100%;
+
+            }
+
+            .left {
+
+                width: 33%;
+                float: right;
+
+            }
+
+            .right {
+                width: 65%;
+
+                float: right;
+
+            }
+
+            .container4 h3 {
+                margin-top: 0.5vw;
+                font-size: 1.5vw;
+                font-weight: bold;
+                float: left;
+            }
+
+            .container4 button {
+                float: left;
+                width: 19%;
+                height: 3vw;
+                margin-left: 1.2vw;
+                font-size: 1vw;
+            }
+        }
+
+        @media (min-width: 1201px) {
+            .day {
+                height: 171px;
+            }
+
+            .allparent {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .all {
+                display: inline-block;
+                
+                width: 1201px;
+                
+            }
+
+            .left {
+                width: 33%;
+                float: right;
+                
+
+            }
+
+            .right {
+                width: 65%;
+                float: right;
+
+            }
+
+            .container4 h3 {
+                margin-top: 6px;
+                font-size: 18px;
+                font-weight: bold;
+                float: left;
+            }
+
+            .container4 button {
+                float: left;
+                width: 19%;
+                height: 36px;
+                margin-left: 1.2vw;
+                font-size: 12px;
+            }
+        }
+
+        .checkbox {
+            border: 1px solid black;
+            margin: 3px;
+            padding-left: 15px;
+            background-color: white;
+        }
+
+        .checkbox span {
+            margin-left: 5px;
+        }
+
+        .container {
+            border: 1px solid black;
+            background-color: lightgrey;
+            margin-top: 5px;
+
+
+        }
+
+        #refresh {
+            width: 60px;
+            margin-left: 4%;
+        }
+
+
+        /* Style the search field */
+        form.example input[type=text] {
+            padding: 10px;
+            font-size: 12px;
+            border: 1px solid grey;
+            float: left;
+            width: 70%;
+            background: #f1f1f1;
+        }
+
+        /* Style the submit button */
+        form.example button {
+            float: left;
+            width: 10%;
+            padding: 10px;
+            background: #1A4A9C;
+            color: white;
+            font-size: 12px;
+            border: 1px solid grey;
+            border-left: none;
+            /* Prevent double borders */
+            cursor: pointer;
+        }
+
+        form.example button:hover {
+            background: #0b7dda;
+        }
+
+        /* Clear floats */
+        form.example::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .container-cal {
+            width: 88%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .p-1 {
+            display: inline-block;
+            font-size: 10pt;
+        }
+
+        .container1 {
+            border: 1px solid black;
+            background-color: whitesmoke;
+            margin: 5px;
+            padding: 5px;
+
+        }
+
+
+
+        .container3 {
+            width: 100%;
+            display: inline-block;
+
+
+        }
+
+        .container4 {
+            margin-top: 0.5vw;
+            width: 100%;
+            display: inline-block;
+
+
+        }
+
+        .addtasks {
+            display: inline-block;
+            font-size: 1.5vw;
+            width: 98%;
+            
+        }
+
+        .firstline {
+            width: 100%;
+            margin: 0.5vw;
+        }
+
+        .firstline select {
+            width: 23%;
+
+        }
+
+        .secondline {
+            margin: 0.5vw;
+            width: 100%;
+        }
+
+        .taskname {
+            width: 30%;
+        }
+
+        .details {
+
+            width: 35%;
+        }
+
+        #add {
+            float: right;
+            margin-right: 2vw;
+        }
+
+        #textmonth {
+            margin-left: 5%;
+        }

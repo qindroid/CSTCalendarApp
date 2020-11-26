@@ -8,6 +8,12 @@
  * Date: 2020-09-29T14:46:09.037Z
  */
 
+.add-button-div{
+  height: auto;
+}
+
+
+
  .datepicker-container {
   background-color: #fff;
   direction: ltr;
