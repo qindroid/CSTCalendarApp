@@ -13,8 +13,23 @@
         }
 
         #addbutton {
+            
             text-align: right;
+            
         }
+        #delete{
+            
+            font-size: 10pt;
+            justify-content: center;
+            
+        }
+        #refresh2{
+            text-align: center;
+            font-size: 10pt;
+            justify-content: center;
+            
+        }
+        
 
         .btn-primary {
             color: #fff;
