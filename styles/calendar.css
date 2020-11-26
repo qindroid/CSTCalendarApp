@@ -1,6 +1,60 @@
 
+        body {
+            min-width: 390px;
+        }
+
         .bg-primary {
             background-color: #005fbd !important;
+        }
+
+        #recent-updates-heading {
+            display: grid;
+            grid-template-columns: auto auto;
+        }
+
+        #addbutton {
+            text-align: right;
+        }
+
+        .btn-primary {
+            color: #fff;
+            background-color: #005fbd;
+            border-color: solid white;
+        }
+        
+        .btn-primary:hover {
+            color: #fff;
+            background-color: #0d345c;
+            border-color: white;
+        }
+        
+        .btn-primary.focus,
+        .btn-primary:focus {
+            box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .5)
+        }
+        
+        .btn-primary:not(:disabled):not(.disabled).active:focus,
+        .btn-primary:not(:disabled):not(.disabled):active:focus,
+        .show>.btn-primary.dropdown-toggle:focus {
+            box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .5)
+        }
+
+        .modal-header {
+            background-color: #005fbd;
+        }
+
+        .modal-title {
+            color: white;
+        }
+
+        .close {
+            float: right;
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1;
+            color: white;
+            text-shadow: 0 1px 0 #fff;
+            opacity: .5
         }
 
         @media (max-width:575px) {
@@ -21,9 +75,6 @@
             .all {
                 display: inline-block;
                 width: 100%;
-
-
-
             }
 
             .container4 h3 {
@@ -41,6 +92,7 @@
                 font-size: 1vw;
             }
             
+            .c
         }
 
         @media screen and (min-width: 576px) and (max-width: 1200px) {
@@ -226,90 +278,13 @@
             margin-top: 0.5vw;
             width: 100%;
             display: inline-block;
-
-
         }
 
-        .addtasks {
-            display: inline-block;
-            font-size: 1.5vw;
-            width: 98%;
-
-        }
-
-        .firstline {
-            width: 100%;
-            margin: 0.5vw;
-        }
-
-        .firstline select {
-            width: 23%;
-
-        }
-
-        .secondline {
-            margin: 0.5vw;
-            width: 100%;
-        }
-
-        .taskname {
-            width: 30%;
-        }
-
-        .details {
-
-            width: 35%;
-        }
-
-        #add {
-            float: right;
-            margin-right: 2vw;
-        }
 
         #textmonth {
             margin-left: 5%;
         }
 
-        .modal {
-            display: none;
-            /* Hidden by default */
-            position: fixed;
-            /* Stay in place */
-            z-index: 1;
-            /* Sit on top */
-            padding-top: 100px;
-            /* Location of the box */
-            left: 0;
-            top: 0;
-            width: 100%;
-            /* Full width */
-            height: 100%;
-            /* Full height */
-            overflow: auto;
-            /* Enable scroll if needed */
-            background-color: rgb(0, 0, 0);
-            /* Fallback color */
-            background-color: rgba(0, 0, 0, 0.4);
-            /* Black w/ opacity */
-        }
-
-        /* Modal Content */
-        .modal-content {
-            background-color: #fefefe;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 50%;
-            text-align: center;
-        }
-
-        /* The Close Button */
-        .close {
-            color: #aaaaaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
 
         .close:hover,
         .close:focus {
@@ -326,7 +301,7 @@
             overflow:auto;
             width: 100%;
         }
-        @media (max-width:768px) {
+        @media (max-width:768px) and (min-width: 400px){
 
             table, th, td {
                 text-align: center;

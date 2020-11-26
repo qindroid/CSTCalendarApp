@@ -1,45 +1,41 @@
-const courseList = document.querySelector('#courselist');
-const courseForm = document.querySelector('#add-course-info');
+const taskList = document.querySelector('');
+const TASK = document.querySelector('')
 
 //create element and render student list
 function renderCourse(doc){
     let li = document.createElement('li');
     let crsName = document.createElement('div');
-    let crsDetail = document.createElement('div');
-    let crsSchedule = document.createElement('div');
-    let studentName= document.createElement('div');
+    //let crsDetail = document.createElement('div');
+    let taskType = document.createElement('div');
+    let dueDate = document.createElement('div');
+    let taskDetails= document.createElement('div');
 
     li.setAttribute('data-id', doc.id);
     crsName.textContent = doc.data().CRS_NAME;
-    crsDetail.textContent = doc.data().CRS_DETAIL;
-    crsSchedule.textContent = doc.data().CRS_SCHEDULE;
-    studentName.textContent = doc.data().STU_NAME;
+    taskType.textContent = doc.data().TASK_TYPE;
+    dueDate.textContent = doc.data().DUE_DATE;
+    taskDetails.textContent = doc.data().TASK_DETAILS;
 
     li.appendChild(crsName);
-    li.appendChild(crsDetail);
-    li.appendChild(crsSchedule);
-    li.appendChild(studentName);
+    li.appendChild(taskType);
+    li.appendChild(dueDate);
+    li.appendChild(taskDetails);
 
-    courseList.appendChild(li);
+    TAKS.appendChild(li);
 }
-
-//getting data
-db.collection("course").get().then((snapshot) => {
-    snapshot.docs.forEach(doc => {
-        renderCourse(doc);
-    });
-})
 
 //saving student information
 courseForm.addEventListener('submit', (e) =>{
     e.preventDefault();
-    db.collection('course').add({
-        CRS_NAME: courseForm.crsName.value,
-        CRS_DETAIL: courseForm.crsDetail.value,
-        CRS_SCHEDULE: courseForm.crsSchedule.value,
+    db.collection('task').add({
+        CRS_NAME: TASK.crsName.value,
+        TASK_TYPE: TASK.taskType.value,
+        DUE_DATE: TASK.dueDate.value,
+        TASK_DETAILS: TASK.taskDetails.value,
 
     });
-    courseForm.crsName.value = '';
-    courseForm.crsDetail.value = '';
-    courseForm.crsSchedule.value = '';
+    TASK.crsName.value = '';
+    TASK.taskType.value = '';
+    TASK.dueDate.value = '';
+    TASK.taskDatails.value = '';
 })
