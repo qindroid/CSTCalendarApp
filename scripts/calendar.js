@@ -159,20 +159,6 @@
         alert("Added Successfully!");
     });
 
-    /*
-                 db.collection("tasks").doc().set({
-
-                     month: month.valueOf(),
-
-                     date: date.valueOf(),
-
-                     type: tasktype.valueOf(),
-
-                     taskname: taskname.valueOf(),
-
-                    detail: details.valueOf(),
-                 });
-            */
 
     //add firebase databases for adding tasks.
 
@@ -193,7 +179,8 @@
     });
 
 
-    var query = db.collection('tasks').orderBy("date", "desc");
+    var query = db.collection('tasks')
+    query.orderBy("date", "desc");
     query.get().then((s) => {
 
         var n = 0;
@@ -202,7 +189,7 @@
             $("#recent-updates-table").append(`
          
                 
-                  <tr><td>` + x.data().course + `</td><td>` + x.data().taskname + `</td><td>` + x.data().date + '/' + x.data().month + `</td></tr>
+                  <tr><td>` + x.data().CRS_NAME + `</td><td>` + x.data().ASSN_NAME + `</td><td>` + x.data().DUE_DATE + `</td></tr>
          `);
             console.log(n);
 
@@ -210,7 +197,7 @@
             if (n <= 20) {
                 //append firebase data to checklist
                 $("#cb").append(`<div class="checkbox"<label>` + n + " " + `<input type="checkbox" value=""><span>Course:      
-                   ` + x.data().course + `, ` + x.data().taskname + ` DATE: ` + x.data().date + `</span></label>
+                   ` + x.data().CRS_NAME + `, ` + x.data().ASSN_NAME + ` DATE: ` + x.data().DUE_DATE + `</span></label>
                    </div> 
          `);
             }

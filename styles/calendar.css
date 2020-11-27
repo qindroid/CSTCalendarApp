@@ -12,11 +12,21 @@
             grid-template-columns: auto auto;
         }
 
+        #monthbutton{
+            
+            
+            
+        }
+
         #addbutton {
             
             text-align: right;
+            padding-bottom: 1em;
+            margin-top: -40px;
             
         }
+        
+
         #delete{
             
             font-size: 10pt;
