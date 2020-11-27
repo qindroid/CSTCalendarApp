@@ -47,8 +47,8 @@ a {
 
 button {
 	border-radius: 20px;
-	border: 1px solid #1A4A9C;
-	background-color: #1A4A9C;
+	border: 1px solid #005fbd;
+	background-color: #005fbd;
 	color: #FFFFFF;
 	font-size: 12px;
 	font-weight: bold;
@@ -165,8 +165,8 @@ button:hover{
 
 .overlay {
 	background: #FF416C;
-	background: -webkit-linear-gradient(to right, #1A4A9C, #1A4A9C);
-	background: linear-gradient(to right, #1A4A9C, #1A4A9C);
+	background: -webkit-linear-gradient(to right, #005fbd, #005fbd);
+	background: linear-gradient(to right, #005fbd, #005fbd);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;

@@ -84,47 +84,47 @@
 //     taskForm.taskType.value = '';
 //     taskForm.dueDate.value = '';
 //     taskForm.taskDatails.value = '';
-// })
-
+ });
+/*
             //add button and add stuff from textfield
-            // $('#add').click(function () {
-            //     console.log("test");
+             $('#add').click(function () {
+                 console.log("test");
 
-            //     // Get the button that opens the modal
-            //     var btn = document.getElementById("add");
+                 // Get the button that opens the modal
+                 var btn = document.getElementById("add");
 
             //     // Get the <span> element that closes the modal
-            //     var span = document.getElementsByClassName("close")[0];
+                 var span = document.getElementsByClassName("close")[0];
 
             //     // When the user clicks the button, open the modal 
-            //     btn.onclick = function () {
-            //         modal.style.display = "block";
-            //     }
+                 btn.onclick = function () {
+                     modal.style.display = "block";
+                 }
 
             //     // When the user clicks on <span> (x), close the modal
-            //     span.onclick = function () {
-            //         modal.style.display = "none";
-            //     }
+                 span.onclick = function () {
+                     modal.style.display = "none";
+                 }
 
             //     // When the user clicks anywhere outside of the modal, close it
-            //     window.onclick = function (event) {
-            //         if (event.target == modal) {
-            //             modal.style.display = "none";
-            //         }
-            //     }
+                 window.onclick = function (event) {
+                     if (event.target == modal) {
+                         modal.style.display = "none";
+                     }
+                 }
 
-            //     $('.date.col-1').each(function (index) {
-            //         console.log($(this).text() === date);
+                 $('.date.col-1').each(function (index) {
+                     console.log($(this).text() === date);
 
-            //         if ($(this).text() === date) {
-            //             $(this).parent().parent().append(
-            //                 `<a class=\\"event d-block p-1 pl-2 pr-2 mb-1 rounded text-truncate small bg-success text-white\\" title=\\"Test Event\\">${taskname}</a>`);
+                     if ($(this).text() === date) {
+                         $(this).parent().parent().append(
+                            `<a class=\\"event d-block p-1 pl-2 pr-2 mb-1 rounded text-truncate small bg-success text-white\\" title=\\"Test Event\\">${taskname}</a>`);
 
-            //         }
-            //     });
+                     }
+                 });
 
-            // });
-
+             });
+*/
             //delete button delete checked checkbox
             $('#delete').click(function () {
                 console.log("test");
@@ -133,34 +133,46 @@
             });
 
             //add firebase databases
+            var taskForm = document.getElementById("taskForm");
             addBtn = document.getElementById("addassignment");
-            addBtn.on('click', function (event) {
-                db.collection('assignments').doc().add({
-                    CRS_NAME: crsName.value,
-                    TASK_TYPE: taskType.value,
-                    DUE_DATE: dueDate.value,
-                    TASK_DETAILS: taskDetails.value,
+            $(addBtn).click(function(event) {
+                db.collection('tasks').doc().set({
+                    CRS_NAME: taskForm.crsName.value,
+                    ASSN_NAME: taskForm.assignmentName.value,
+                    TASK_TYPE: taskForm.taskType.value,
+                    DUE_DATE: taskForm.dueDate.value,
+                    TASK_DETAILS: taskForm.taskDetails.value,
                 });
-                crsName.value = '';
+            
+                taskForm.crsName.value = '';
                 taskForm.taskType.value = '';
-                dueDate.value = '';
-                taskDatails.value = '';
+                taskForm.dueDate.value = '';
+                taskForm.taskDetails.value = '';
+                taskForm.assignmentName.value = '';
+                $('#taskType').prop('selected', function() {
+                        return this.defaultSelected;
+                    });
                 
-                
-                // db.collection("tasks").doc().set({
+                $('#assignmentName').prop('selected', function() {
+                    return this.defaultSelected;
+                });
+                alert("Added Successfully!");
+                });
+           
+                /*
+                 db.collection("tasks").doc().set({
 
-                //     month: month.valueOf(),
+                     month: month.valueOf(),
 
-                //     date: date.valueOf(),
+                     date: date.valueOf(),
 
-                //     type: tasktype.valueOf(),
+                     type: tasktype.valueOf(),
 
-                //     taskname: taskname.valueOf(),
+                     taskname: taskname.valueOf(),
 
-                //     detail: details.valueOf(),
-                // });
-            });
-        });
+                    detail: details.valueOf(),
+                 });
+            */
 
             //add firebase databases for adding tasks.
             
@@ -179,8 +191,9 @@
             // An error happened.
           })});
 
-
-          var query = db.collection('tasks').orderBy("date", "desc");
+          
+          var query = db.collection('tasks')
+          query.orderBy("date");
             query.get().then((s) => {
     
             var n = 0;
@@ -188,7 +201,7 @@
                $("#recent-updates-table").append(`
          
                 
-                  <tr><td>`+ x.data().course +`</td><td>` + x.data().taskname +`</td><td>` + x.data().date + '/' + x.data().month + `</td></tr>
+                  <tr><td>`+ x.data().CRS_NAME +`</td><td>` + x.data().ASSN_NAME +`</td><td>` + x.data().DUE_DATE + `</td></tr>
          `);
          
                n += 1;
@@ -196,7 +209,3 @@
          });
 
 
-
-        $(document).ready(function () {
-
-        });

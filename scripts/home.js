@@ -11,7 +11,8 @@ logoutBtn.addEventListener('click', function () {
         // An error happened.
     })
 });
-var query = db.collection('tasks').orderBy("date", "desc");
+var query = db.collection('tasks')
+query.orderBy("date").limit(10);
 query.get().then((s) => {
     var n = 0;
     s.forEach(function(x){
@@ -19,7 +20,7 @@ query.get().then((s) => {
  
     
           <tr>
-            <td>` + (n+1) +`</td><td>`+ x.data().course +`</td><td>` + x.data().taskname +`</td><td>`+ x.data().type + `</td><td>` + x.data().date + '/' + x.data().month + `</td><td>` + x.data().detail + `</td></tr>
+            <td>` + (n+1) +`</td><td>`+ x.data().CRS_NAME +`</td><td>` + x.data().ASSN_NAME +`</td><td>`+ x.data().TASK_TYPE + `</td><td>` + x.data().DUE_DATE + `</td><td>` + x.data().TASK_DETAILS + `</td></tr>
  `);
  
        n += 1;
