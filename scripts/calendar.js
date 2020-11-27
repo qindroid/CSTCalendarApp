@@ -128,7 +128,7 @@
     //delete button delete checked checkbox
     $('#delete').click(function () {
         console.log("test");
-        $(".checkbox input:checked").parent().parent().remove();
+        $(".checkbox input:checked").parent().remove();
 
     });
 
@@ -205,16 +205,20 @@
                   <tr><td>` + x.data().course + `</td><td>` + x.data().taskname + `</td><td>` + x.data().date + '/' + x.data().month + `</td></tr>
          `);
             console.log(n);
+
+            //make sure checklist less than 20 lists
             if (n <= 20) {
+                //append firebase data to checklist
                 $("#cb").append(`<div class="checkbox"<label>` + n + " " + `<input type="checkbox" value=""><span>Course:      
                    ` + x.data().course + `, ` + x.data().taskname + ` DATE: ` + x.data().date + `</span></label>
                    </div> 
          `);
             }
-
+            //search calendar for specific date
             $('.date.col-1').each(function (index) {
                 console.log($(this).text() === x.data().date);
 
+                //check the date and append the date from firebase
                 if ($(this).text() === x.data().date) {
                     $(this).parent().parent().append(
                         `<a class="event d-block p-1 pl-2 pr-2 mb-1 rounded text-truncate small bg-primary text-white"
