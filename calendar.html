@@ -409,7 +409,7 @@
                             <h3>Following Tasks</h3>
                         </div>
                         <button type="submit" id="delete">Delete</button>
-                        <button type="submit" id="refresh2">Refresh</button>
+                        <button type="submit" onClick="window.location.reload()" id="refresh2">Refresh</button>
                     </div>
                     <div class="container">
                         <form id="cb">
@@ -480,7 +480,7 @@
                                   name="taskDetails" rows="3"></textarea>
                           </div>
                           <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              <button id="closebutton" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                               <button id="addassignment" type="button" class="btn btn-primary">Add</button>
                           </div>
                   </form>

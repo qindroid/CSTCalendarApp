@@ -1,3 +1,4 @@
+    //var below not working in firebase on 11-28 2:07AM, working locally please dont delete Shawn
     var date = "default";
     var course = "default"; //month to course
     var taskname = "default";
@@ -125,11 +126,68 @@
 
                  });
     */
+    var deleteiltem;
+    var splitstring = [];
+    //create a list for checked items
+    var list = [];
+
     //delete button delete checked checkbox
     $('#delete').click(function () {
         console.log("test");
-        $(".checkbox input:checked").parent().remove();
+        //console.log($(".checkbox:input:checked").next().html());
 
+
+        //get the checked items
+        $.each($(".checkbox input:checked"), function () {
+            list.push($(this).next().html());
+        });
+        console.log(list);
+
+        //searching the keywords in checkbox span to match keywords in firebase
+        //WARNING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        //DO NOT CHANGE CHECKBOX STRING FORMAT ON BOTTOM -Shawn
+        //using special char to find keywords 
+        //using * and @ find ASSN_NAME
+        //using : and . find DUE_DATE
+        for (var i = 0; i < list.length; i++) {
+            deleteiltem = list[i];
+            var delete_crs = deleteiltem.substring(
+                deleteiltem.lastIndexOf("*") + 1,
+                deleteiltem.lastIndexOf("@")
+
+            );
+            var delete_date = deleteiltem.substring(
+                deleteiltem.lastIndexOf(":") + 1,
+                deleteiltem.lastIndexOf(".")
+            );
+            console.log(delete_crs);
+            console.log(delete_date);
+
+            //get the doc id by seaching the fields
+            db.collection('tasks').where('ASSN_NAME', '==', delete_crs).where('DUE_DATE', '==', delete_date).get()
+                .then(function (querySnapshot) {
+                    querySnapshot.forEach(function (doc) {
+
+                        // print doc id in consle for testing
+                        console.log(doc.id, " => ", doc.data());
+
+                        //delete the doc
+                        db.collection("tasks").doc(doc.id).delete();
+                    });
+                })
+                .catch(function (error) {
+                    console.log("Error getting documents: ", error);
+                });
+
+
+
+        }
+
+        $(".checkbox input:checked").parent().remove();
+        
+        setTimeout(function() {
+            location.reload();
+        }, 1000);
     });
 
     //add firebase databases
@@ -157,8 +215,12 @@
             return this.defaultSelected;
         });
         alert("Added Successfully!");
+        $('#closebutton').trigger('click');
+        setTimeout(function() {
+            location.reload();
+        }, 1000);
     });
-
+    
 
     //add firebase databases for adding tasks.
 
@@ -196,20 +258,26 @@
             //make sure checklist less than 20 lists
             if (n <= 20) {
                 //append firebase data to checklist
-                $("#cb").append(`<div class="checkbox"<label>` + n + " " + `<input type="checkbox" value=""><span>Course:      
-                   ` + x.data().CRS_NAME + `, ` + x.data().ASSN_NAME + ` DATE: ` + x.data().DUE_DATE + `</span></label>
+                //Please dont change anything in append
+                $("#cb").append(`<div class="checkbox"<label>` + n + " " + `<input type="checkbox" value=""><span>Course:     
+                ` + x.data().CRS_NAME + ` *` + x.data().ASSN_NAME + `@ DATE:` + x.data().DUE_DATE + `.</span></label>
                    </div> 
          `);
             }
+
+            //fix the bug after data name changed in firestore
+            //convert DUE_DATE to var date :) 11-28 2:07AM Shawn
+            var str = String(x.data().DUE_DATE);
+            date = String(parseInt(str.substr(-2)));
             //search calendar for specific date
             $('.date.col-1').each(function (index) {
                 console.log($(this).text() === x.data().date);
-
+                console.log(date);
                 //check the date and append the date from firebase
-                if ($(this).text() === x.data().date) {
+                if ($(this).text() === date) {
                     $(this).parent().parent().append(
                         `<a class="event d-block p-1 pl-2 pr-2 mb-1 rounded text-truncate small bg-primary text-white"
-                    title="Test">` + x.data().taskname + " " + x.data().course + `</a>`);
+                    title="Test">` + x.data().CRS_NAME + " " + x.data().ASSN_NAME + `</a>`);
 
                 }
             });
