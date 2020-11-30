@@ -12,12 +12,6 @@
             grid-template-columns: auto auto;
         }
 
-        #monthbutton{
-            
-            
-            
-        }
-
         #addbutton {
             
             text-align: right;
@@ -158,6 +152,7 @@
                 margin-left: 1.2vw;
                 font-size: 1vw;
             }
+
            
         }
 
@@ -206,6 +201,10 @@
                 height: 36px;
                 margin-left: 1.2vw;
                 font-size: 12px;
+            }
+            #monthbutton{
+                float: right;
+                margin-top: 15pt;
             }
             
         }
@@ -382,9 +381,6 @@
             .all {
                 display: inline-block;
                 width: 100%;
-
-
-
             }
 
             .container4 h3 {
@@ -401,6 +397,7 @@
                 margin-left: 1.2vw;
                 font-size: 1vw;
             }
+            
         }
 
         @media screen and (min-width: 576px) and (max-width: 1200px) {
@@ -442,6 +439,19 @@
                 margin-left: 1.2vw;
                 font-size: 1vw;
             }
+            table, th, td {
+                text-align: center;
+                width: 10%;
+                border: 1px solid black;
+                padding: 0em;
+                overflow-x: auto;
+                overflow-y: auto;
+                font-size:9pt;
+              }
+              td {
+                width:0.1%;
+                white-space: nowrap;
+                }
         }
 
         @media (min-width: 1201px) {
@@ -629,3 +639,13 @@
             margin-left: 5%;
         }
     
+        #monthbutton{
+            float: right;
+        }
+        .container1{
+            
+            padding: 10px;
+            border: 2px solid #000;
+            border-radius: 15px;
+            -moz-border-radius: 15px;
+        }

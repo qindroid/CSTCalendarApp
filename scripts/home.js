@@ -11,9 +11,9 @@ logoutBtn.addEventListener('click', function () {
         // An error happened.
     })
 });
-var query = db.collection('tasks')
-query.orderBy("date").limit(10);
-query.get().then((s) => {
+var query = db.collection("tasks");
+var newquery = query.orderBy("DUE_DATE", "asc")
+newquery.get().then((s) => {
     var n = 0;
     s.forEach(function(x){
        $("#recent-updates-table").append(`
@@ -21,7 +21,7 @@ query.get().then((s) => {
     
           <tr>
             <td>` + (n+1) +`</td><td>`+ x.data().CRS_NAME +`</td><td>` + x.data().ASSN_NAME +`</td><td>`+ x.data().TASK_TYPE + `</td><td>` + x.data().DUE_DATE + `</td><td>` + x.data().TASK_DETAILS + `</td></tr>
- `);
+        `);
  
        n += 1;
     });
