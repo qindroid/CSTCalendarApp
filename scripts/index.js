@@ -15,7 +15,6 @@ window.onload = function () {
 
 
 
-
   const auth = firebase.auth();
   const studentSignUpForm = document.querySelector('#signup-form');
   const studentSignInForm = document.querySelector('#signin-form');
@@ -32,19 +31,11 @@ window.onload = function () {
     if (!email || !pass) {
       return alert("Email and password both required!");
     }
-    /*
-        const signUpPromise = firebase.auth().createUserWithEmailAndPassword(email, pass)
-        if (signUpPromise.catch(function (error) {
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            alert(errorMessage);
-          }))
+    const signUpPromise = firebase.auth().createUserWithEmailAndPassword(email, pass)
+    
+      alert("Welcome to the CST family!");
 
-          //const hi = "hi";
-        else {
-          alert("Welcome to the CST family ", name, "!");
-        }
-    */
+
     //THIS WRITES IT TO THE DATABASE; DONT CHANGE
     db.collection('student').add({
       STU_NAME: studentSignUpForm.name.value,
@@ -52,6 +43,7 @@ window.onload = function () {
       STU_EMAIL: studentSignUpForm.email.value,
       STU_NICKNAME: studentSignUpForm.nickname.value
     });
+    window.location = "/home.html";
   });
 
   //SIGN IN AUTHENTICATION; DONT TOUCH
