@@ -34,7 +34,7 @@ window.onload = function () {
     const signUpPromise = firebase.auth().createUserWithEmailAndPassword(email, pass)
     
       alert("Welcome to the CST family!");
-
+      window.location = "/home.html";
 
     //THIS WRITES IT TO THE DATABASE; DONT CHANGE
     db.collection('student').add({
@@ -43,7 +43,6 @@ window.onload = function () {
       STU_EMAIL: studentSignUpForm.email.value,
       STU_NICKNAME: studentSignUpForm.nickname.value
     });
-    window.location = "/home.html";
   });
 
   //SIGN IN AUTHENTICATION; DONT TOUCH
