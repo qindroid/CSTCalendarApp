@@ -1,651 +1,715 @@
+.modal1 {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 40vh;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal1-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* The Close Button */
+.close {
+    color: #361a1a;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+body {
+    min-width: 390px;
+}
+
+.bg-primary {
+    background-color: #005fbd !important;
+}
+
+#recent-updates-heading {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+#addbutton {
+
+    text-align: right;
+    padding-bottom: 1em;
+    margin-top: -40px;
+
+}
+
+
+#delete {
+
+    font-size: 10pt;
+    justify-content: center;
+
+}
+
+#refresh2 {
+    text-align: center;
+    font-size: 10pt;
+    justify-content: center;
+
+}
+
+
+.btn-primary {
+    color: #fff;
+    background-color: #005fbd;
+    border-color: solid white;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #0d345c;
+    border-color: white;
+}
+
+.btn-primary.focus,
+.btn-primary:focus {
+    box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .5)
+}
+
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.show>.btn-primary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .5)
+}
+
+.modal-header {
+    background-color: #005fbd;
+}
+
+.modal-title {
+    color: white;
+}
+
+.close {
+    float: right;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: white;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5
+}
+
+@media (max-width:575px) {
+    .display-4 {
+        font-size: 1.5rem;
+    }
+
+    .day h5 {
+        background-color: #f8f9fa;
+        padding: 3px 5px 5px;
+        margin: -8px -8px 8px -8px;
+    }
 
-        body {
-            min-width: 390px;
-        }
-
-        .bg-primary {
-            background-color: #005fbd !important;
-        }
-
-        #recent-updates-heading {
-            display: grid;
-            grid-template-columns: auto auto;
-        }
-
-        #addbutton {
-            
-            text-align: right;
-            padding-bottom: 1em;
-            margin-top: -40px;
-            
-        }
-        
-
-        #delete{
-            
-            font-size: 10pt;
-            justify-content: center;
-            
-        }
-        #refresh2{
-            text-align: center;
-            font-size: 10pt;
-            justify-content: center;
-            
-        }
-        
-
-        .btn-primary {
-            color: #fff;
-            background-color: #005fbd;
-            border-color: solid white;
-        }
-        
-        .btn-primary:hover {
-            color: #fff;
-            background-color: #0d345c;
-            border-color: white;
-        }
-        
-        .btn-primary.focus,
-        .btn-primary:focus {
-            box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .5)
-        }
-        
-        .btn-primary:not(:disabled):not(.disabled).active:focus,
-        .btn-primary:not(:disabled):not(.disabled):active:focus,
-        .show>.btn-primary.dropdown-toggle:focus {
-            box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .5)
-        }
-
-        .modal-header {
-            background-color: #005fbd;
-        }
-
-        .modal-title {
-            color: white;
-        }
-
-        .close {
-            float: right;
-            font-size: 1.5rem;
-            font-weight: 700;
-            line-height: 1;
-            color: white;
-            text-shadow: 0 1px 0 #fff;
-            opacity: .5
-        }
-
-        @media (max-width:575px) {
-            .display-4 {
-                font-size: 1.5rem;
-            }
-
-            .day h5 {
-                background-color: #f8f9fa;
-                padding: 3px 5px 5px;
-                margin: -8px -8px 8px -8px;
-            }
-
-            .date {
-                padding-left: 4px;
-            }
-
-            .all {
-                display: inline-block;
-                width: 100%;
-            }
-
-            .container4 h3 {
-                margin-top: 0.5vw;
-                font-size: 3vw;
-                font-weight: bold;
-                float: left;
-            }
-
-            .container4 button {
-                float: left;
-                width: 19%;
-                height: 5vw;
-                margin-left: 1.2vw;
-                font-size: 1vw;
-            }
-            
-        }
-
-        @media screen and (min-width: 576px) and (max-width: 1200px) {
-            .day {
-                height: 14.2857vw;
-            }
-
-            .all {
-                display: inline-block;
-                width: 100%;
-
-            }
-
-            .left {
-
-                width: 33%;
-                float: right;
-
-            }
-
-            .right {
-                width: 65%;
-
-                float: right;
-
-            }
-
-            .container4 h3 {
-                margin-top: 0.5vw;
-                font-size: 1.5vw;
-                font-weight: bold;
-                float: left;
-            }
-
-            .container4 button {
-                float: left;
-                width: 19%;
-                height: 3vw;
-                margin-left: 1.2vw;
-                font-size: 1vw;
-            }
-
-           
-        }
-
-        @media (min-width: 1201px) {
-            .day {
-                height: 171px;
-            }
-
-            .allparent {
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-
-            .all {
-                display: inline-block;
-
-                width: 1201px;
-
-            }
-
-            .left {
-                width: 33%;
-                float: right;
-
-
-            }
-
-            .right {
-                width: 65%;
-                float: right;
-
-            }
-
-            .container4 h3 {
-                margin-top: 6px;
-                font-size: 18px;
-                font-weight: bold;
-                float: left;
-            }
-
-            .container4 button {
-                float: left;
-                width: 19%;
-                height: 36px;
-                margin-left: 1.2vw;
-                font-size: 12px;
-            }
-            #monthbutton{
-                float: right;
-                margin-top: 15pt;
-            }
-            
-        }
-
-        .checkbox {
-            border: 1px solid black;
-            margin: 3px;
-            padding-left: 15px;
-            background-color: white;
-        }
-
-        .checkbox span {
-            margin-left: 5px;
-        }
-
-        .container {
-            border: 1px solid black;
-            background-color: lightgrey;
-            margin-top: 5px;
-
-
-        }
-
-        #refresh {
-            width: 60px;
-            margin-left: 4%;
-        }
-
-
-        /* Style the search field */
-        form.example input[type=text] {
-            padding: 10px;
-            font-size: 12px;
-            border: 1px solid grey;
-            float: left;
-            width: 70%;
-            background: #f1f1f1;
-        }
-
-        /* Style the submit button */
-        form.example button {
-            float: left;
-            width: 10%;
-            padding: 10px;
-            background: #1A4A9C;
-            color: white;
-            font-size: 12px;
-            border: 1px solid grey;
-            border-left: none;
-            /* Prevent double borders */
-            cursor: pointer;
-        }
-
-        form.example button:hover {
-            background: #0b7dda;
-        }
-
-        /* Clear floats */
-        form.example::after {
-            content: "";
-            clear: both;
-            display: table;
-        }
-
-        .container-cal {
-            width: 88%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .p-1 {
-            display: inline-block;
-            font-size: 10pt;
-        }
-
-        .container1 {
-            border: 1px solid black;
-            background-color: whitesmoke;
-            margin: 5px;
-            padding: 5px;
-
-        }
-
-
-
-        .container3 {
-            width: 100%;
-            display: inline-block;
-
-
-        }
-
-        .container4 {
-            margin-top: 0.5vw;
-            width: 100%;
-            display: inline-block;
-        }
-
-
-        #textmonth {
-            margin-left: 5%;
-        }
-
-
-        .close:hover,
-        .close:focus {
-            color: #000;
-            text-decoration: none;
-            cursor: pointer;
-        }
-       
-        table, th, td {
-            text-align: center;
-            border: 2px solid black;
-            padding: 0em;
-            width: 100%;
-            overflow:auto;
-            width: 100%;
-        }
-        @media (max-width:768px) and (min-width: 400px){
-
-            table, th, td {
-                text-align: center;
-                width: fit-content;
-                border: 1px solid black;
-                padding: 0em;
-                overflow-x: auto;
-                overflow-y: auto;
-                font-size:9pt;
-              }
-              td {
-                width:0.1%;
-                white-space: nowrap;
-                } 
-              
-          }
-          @media screen and (min-width: 769px) and (max-width: 1000px) {
-
-            table, th, td {
-                text-align: center;
-                
-                width: fit-content;
-                border: 1px solid black;
-                padding: 0em;
-                overflow-x: auto;
-                overflow-y: auto;
-                font-size:12pt;
-              }
-              td {
-                width:0.1%;
-                white-space: wrap;
-                } 
-              
-          }
-          .bg-primary {
-            background-color: #005fbd !important;
-        }
-
-        @media (max-width:575px) {
-            .display-4 {
-                font-size: 1.5rem;
-            }
-
-            .day h5 {
-                background-color: #f8f9fa;
-                padding: 3px 5px 5px;
-                margin: -8px -8px 8px -8px;
-            }
-
-            .date {
-                padding-left: 4px;
-            }
-
-            .all {
-                display: inline-block;
-                width: 100%;
-            }
-
-            .container4 h3 {
-                margin-top: 0.5vw;
-                font-size: 3vw;
-                font-weight: bold;
-                float: left;
-            }
-
-            .container4 button {
-                float: left;
-                width: 19%;
-                height: 5vw;
-                margin-left: 1.2vw;
-                font-size: 1vw;
-            }
-            
-        }
-
-        @media screen and (min-width: 576px) and (max-width: 1200px) {
-            .day {
-                height: 14.2857vw;
-            }
-
-            .all {
-                display: inline-block;
-                width: 100%;
-
-            }
-
-            .left {
-
-                width: 33%;
-                float: right;
-
-            }
-
-            .right {
-                width: 65%;
-
-                float: right;
-
-            }
-
-            .container4 h3 {
-                margin-top: 0.5vw;
-                font-size: 1.5vw;
-                font-weight: bold;
-                float: left;
-            }
-
-            .container4 button {
-                float: left;
-                width: 19%;
-                height: 3vw;
-                margin-left: 1.2vw;
-                font-size: 1vw;
-            }
-            table, th, td {
-                text-align: center;
-                width: 10%;
-                border: 1px solid black;
-                padding: 0em;
-                overflow-x: auto;
-                overflow-y: auto;
-                font-size:9pt;
-              }
-              td {
-                width:0.1%;
-                white-space: nowrap;
-                }
-        }
-
-        @media (min-width: 1201px) {
-            .day {
-                height: 171px;
-            }
-
-            .allparent {
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-
-            .all {
-                display: inline-block;
-                
-                width: 1201px;
-                
-            }
-
-            .left {
-                width: 33%;
-                float: right;
-                
-
-            }
-
-            .right {
-                width: 65%;
-                float: right;
-
-            }
-
-            .container4 h3 {
-                margin-top: 6px;
-                font-size: 18px;
-                font-weight: bold;
-                float: left;
-            }
-
-            .container4 button {
-                float: left;
-                width: 19%;
-                height: 36px;
-                margin-left: 1.2vw;
-                font-size: 12px;
-            }
-        }
-
-        .checkbox {
-            border: 1px solid black;
-            margin: 3px;
-            padding-left: 15px;
-            background-color: white;
-            font-size: small;
-        }
-
-        .checkbox span {
-            margin-left: 5px;
-        }
-
-        .container {
-            border: 1px solid black;
-            background-color: lightgrey;
-            margin-top: 5px;
-
-
-        }
-
-        #refresh {
-            width: 60px;
-            margin-left: 4%;
-        }
-
-
-        /* Style the search field */
-        form.example input[type=text] {
-            padding: 10px;
-            font-size: 12px;
-            border: 1px solid grey;
-            float: left;
-            width: 70%;
-            background: #f1f1f1;
-        }
-
-        /* Style the submit button */
-        form.example button {
-            float: left;
-            width: 10%;
-            padding: 10px;
-            background: #1A4A9C;
-            color: white;
-            font-size: 12px;
-            border: 1px solid grey;
-            border-left: none;
-            /* Prevent double borders */
-            cursor: pointer;
-        }
-
-        form.example button:hover {
-            background: #0b7dda;
-        }
-
-        /* Clear floats */
-        form.example::after {
-            content: "";
-            clear: both;
-            display: table;
-        }
-
-        .container-cal {
-            width: 88%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .p-1 {
-            display: inline-block;
-            font-size: 10pt;
-        }
-
-        .container1 {
-            border: 1px solid black;
-            background-color: whitesmoke;
-            margin: 5px;
-            padding: 5px;
-
-        }
-
-
-
-        .container3 {
-            width: 100%;
-            display: inline-block;
-
-
-        }
-
-        .container4 {
-            margin-top: 0.5vw;
-            width: 100%;
-            display: inline-block;
-
-
-        }
-
-        .addtasks {
-            display: inline-block;
-            font-size: 1.5vw;
-            width: 98%;
-            
-        }
-
-        .firstline {
-            width: 100%;
-            margin: 0.5vw;
-        }
-
-        .firstline select {
-            width: 23%;
-
-        }
-
-        .secondline {
-            margin: 0.5vw;
-            width: 100%;
-        }
-
-        .taskname {
-            width: 30%;
-        }
-
-        .details {
-
-            width: 35%;
-        }
-
-        #add {
-            float: right;
-            margin-right: 2vw;
-        }
-
-        #textmonth {
-            margin-left: 5%;
-        }
-    
-        #monthbutton{
-            float: right;
-        }
-        .container1{
-            
-            padding: 10px;
-            border: 2px solid #000;
-            border-radius: 15px;
-            -moz-border-radius: 15px;
-        }
+    .date {
+        padding-left: 4px;
+    }
+
+    .all {
+        display: inline-block;
+        width: 100%;
+    }
+
+    .container4 h3 {
+        margin-top: 0.5vw;
+        font-size: 3vw;
+        font-weight: bold;
+        float: left;
+    }
+
+    .container4 button {
+        float: left;
+        width: 19%;
+        height: 5vw;
+        margin-left: 1.2vw;
+        font-size: 1vw;
+    }
+
+}
+
+@media screen and (min-width: 576px) and (max-width: 1200px) {
+    .day {
+        height: 14.2857vw;
+    }
+
+    .all {
+        display: inline-block;
+        width: 100%;
+
+    }
+
+    .left {
+
+        width: 33%;
+        float: right;
+
+    }
+
+    .right {
+        width: 65%;
+
+        float: right;
+
+    }
+
+    .container4 h3 {
+        margin-top: 0.5vw;
+        font-size: 1.5vw;
+        font-weight: bold;
+        float: left;
+    }
+
+    .container4 button {
+        float: left;
+        width: 19%;
+        height: 3vw;
+        margin-left: 1.2vw;
+        font-size: 1vw;
+    }
+
+
+}
+
+@media (min-width: 1201px) {
+    .day {
+        height: 171px;
+    }
+
+    .allparent {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .all {
+        display: inline-block;
+
+        width: 1201px;
+
+    }
+
+    .left {
+        width: 33%;
+        float: right;
+
+
+    }
+
+    .right {
+        width: 65%;
+        float: right;
+
+    }
+
+    .container4 h3 {
+        margin-top: 6px;
+        font-size: 18px;
+        font-weight: bold;
+        float: left;
+    }
+
+    .container4 button {
+        float: left;
+        width: 19%;
+        height: 36px;
+        margin-left: 1.2vw;
+        font-size: 12px;
+    }
+
+    #monthbutton {
+        float: right;
+        margin-top: 15pt;
+    }
+
+}
+
+.checkbox {
+    border: 1px solid black;
+    margin: 3px;
+    padding-left: 15px;
+    background-color: white;
+}
+
+.checkbox span {
+    margin-left: 5px;
+}
+
+.container {
+    border: 1px solid black;
+    background-color: lightgrey;
+    margin-top: 5px;
+
+
+}
+
+#refresh {
+    width: 60px;
+    margin-left: 4%;
+}
+
+
+/* Style the search field */
+form.example input[type=text] {
+    padding: 10px;
+    font-size: 12px;
+    border: 1px solid grey;
+    float: left;
+    width: 70%;
+    background: #f1f1f1;
+}
+
+/* Style the submit button */
+form.example button {
+    float: left;
+    width: 10%;
+    padding: 10px;
+    background: #1A4A9C;
+    color: white;
+    font-size: 12px;
+    border: 1px solid grey;
+    border-left: none;
+    /* Prevent double borders */
+    cursor: pointer;
+}
+
+form.example button:hover {
+    background: #0b7dda;
+}
+
+/* Clear floats */
+form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.container-cal {
+    width: 88%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.p-1 {
+    display: inline-block;
+    font-size: 10pt;
+}
+
+.container1 {
+    border: 1px solid black;
+    background-color: whitesmoke;
+    margin: 5px;
+    padding: 5px;
+
+}
+
+
+
+.container3 {
+    width: 100%;
+    display: inline-block;
+
+
+}
+
+.container4 {
+    margin-top: 0.5vw;
+    width: 100%;
+    display: inline-block;
+}
+
+
+#textmonth {
+    margin-left: 5%;
+}
+
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+table,
+th,
+td {
+    text-align: center;
+    border: 2px solid black;
+    padding: 0em;
+    width: 100%;
+    overflow: auto;
+    width: 100%;
+}
+
+@media (max-width:768px) and (min-width: 400px) {
+
+    table,
+    th,
+    td {
+        text-align: center;
+        width: fit-content;
+        border: 1px solid black;
+        padding: 0em;
+        overflow-x: auto;
+        overflow-y: auto;
+        font-size: 9pt;
+    }
+
+    td {
+        width: 0.1%;
+        white-space: nowrap;
+    }
+
+}
+
+@media screen and (min-width: 769px) and (max-width: 1000px) {
+
+    table,
+    th,
+    td {
+        text-align: center;
+
+        width: fit-content;
+        border: 1px solid black;
+        padding: 0em;
+        overflow-x: auto;
+        overflow-y: auto;
+        font-size: 12pt;
+    }
+
+    td {
+        width: 0.1%;
+        white-space: wrap;
+    }
+
+}
+
+.bg-primary {
+    background-color: #005fbd !important;
+}
+
+@media (max-width:575px) {
+    .display-4 {
+        font-size: 1.5rem;
+    }
+
+    .day h5 {
+        background-color: #f8f9fa;
+        padding: 3px 5px 5px;
+        margin: -8px -8px 8px -8px;
+    }
+
+    .date {
+        padding-left: 4px;
+    }
+
+    .all {
+        display: inline-block;
+        width: 100%;
+    }
+
+    .container4 h3 {
+        margin-top: 0.5vw;
+        font-size: 3vw;
+        font-weight: bold;
+        float: left;
+    }
+
+    .container4 button {
+        float: left;
+        width: 19%;
+        height: 5vw;
+        margin-left: 1.2vw;
+        font-size: 1vw;
+    }
+
+}
+
+@media screen and (min-width: 576px) and (max-width: 1200px) {
+    .day {
+        height: 14.2857vw;
+    }
+
+    .all {
+        display: inline-block;
+        width: 100%;
+
+    }
+
+    .left {
+
+        width: 33%;
+        float: right;
+
+    }
+
+    .right {
+        width: 65%;
+
+        float: right;
+
+    }
+
+    .container4 h3 {
+        margin-top: 0.5vw;
+        font-size: 1.5vw;
+        font-weight: bold;
+        float: left;
+    }
+
+    .container4 button {
+        float: left;
+        width: 19%;
+        height: 3vw;
+        margin-left: 1.2vw;
+        font-size: 1vw;
+    }
+
+    table,
+    th,
+    td {
+        text-align: center;
+        width: 10%;
+        border: 1px solid black;
+        padding: 0em;
+        overflow-x: auto;
+        overflow-y: auto;
+        font-size: 9pt;
+    }
+
+    td {
+        width: 0.1%;
+        white-space: nowrap;
+    }
+}
+
+@media (min-width: 1201px) {
+    .day {
+        height: 171px;
+    }
+
+    .allparent {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .all {
+        display: inline-block;
+
+        width: 1201px;
+
+    }
+
+    .left {
+        width: 33%;
+        float: right;
+
+
+    }
+
+    .right {
+        width: 65%;
+        float: right;
+
+    }
+
+    .container4 h3 {
+        margin-top: 6px;
+        font-size: 18px;
+        font-weight: bold;
+        float: left;
+    }
+
+    .container4 button {
+        float: left;
+        width: 19%;
+        height: 36px;
+        margin-left: 1.2vw;
+        font-size: 12px;
+    }
+}
+
+.checkbox {
+    border: 1px solid black;
+    margin: 3px;
+    padding-left: 15px;
+    background-color: white;
+    font-size: small;
+}
+
+.checkbox span {
+    margin-left: 5px;
+}
+
+.container {
+    border: 1px solid black;
+    background-color: lightgrey;
+    margin-top: 5px;
+
+
+}
+
+#refresh {
+    width: 60px;
+    margin-left: 4%;
+}
+
+
+/* Style the search field */
+form.example input[type=text] {
+    padding: 10px;
+    font-size: 12px;
+    border: 1px solid grey;
+    float: left;
+    width: 70%;
+    background: #f1f1f1;
+}
+
+/* Style the submit button */
+form.example button {
+    float: left;
+    width: 10%;
+    padding: 10px;
+    background: #1A4A9C;
+    color: white;
+    font-size: 12px;
+    border: 1px solid grey;
+    border-left: none;
+    /* Prevent double borders */
+    cursor: pointer;
+}
+
+form.example button:hover {
+    background: #0b7dda;
+}
+
+/* Clear floats */
+form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.container-cal {
+    width: 88%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.p-1 {
+    display: inline-block;
+    font-size: 10pt;
+}
+
+.container1 {
+    border: 1px solid black;
+    background-color: whitesmoke;
+    margin: 5px;
+    padding: 5px;
+
+}
+
+
+
+.container3 {
+    width: 100%;
+    display: inline-block;
+
+
+}
+
+.container4 {
+    margin-top: 0.5vw;
+    width: 100%;
+    display: inline-block;
+
+
+}
+
+.addtasks {
+    display: inline-block;
+    font-size: 1.5vw;
+    width: 98%;
+
+}
+
+.firstline {
+    width: 100%;
+    margin: 0.5vw;
+}
+
+.firstline select {
+    width: 23%;
+
+}
+
+.secondline {
+    margin: 0.5vw;
+    width: 100%;
+}
+
+.taskname {
+    width: 30%;
+}
+
+.details {
+
+    width: 35%;
+}
+
+#add {
+    float: right;
+    margin-right: 2vw;
+}
+
+#textmonth {
+    margin-left: 5%;
+}
+
+#monthbutton {
+    float: right;
+}
+
+.container1 {
+
+    padding: 10px;
+    border: 2px solid #000;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+}

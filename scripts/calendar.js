@@ -32,7 +32,7 @@
                         var details = "default";
                         var tasktype = "default";
                         var i = 0;
-                        
+
                         $(document).ready(function () {
 
                             console.log($("span.col-1").text());
@@ -127,9 +127,7 @@
 
                             $(".checkbox input:checked").parent().remove();
 
-                            setTimeout(function () {
-                                location.reload();
-                            }, 1000);
+
                         });
 
                         //add firebase databases
@@ -189,7 +187,7 @@
                                 date = String(parseInt(str.substr(-2)));
                                 //search calendar for specific date
                                 $('.date.col-1').each(function (index) {
-                                    
+
                                     //check the date and append the date from firebase
                                     if ($(this).text() === date) {
                                         $(this).parent().parent().append(
@@ -221,7 +219,7 @@
                   <tr><td class="bg-primary text-white">` + x.data().CRS_NAME + `</td><td>` + x.data().ASSN_NAME + `</td><td>` + x.data().DUE_DATE + `</td></tr>
          `);
             console.log(n);
-           
+
             //fix the bug after data name changed in firestore
             //convert DUE_DATE to var date :) 11-28 2:07AM Shawn
             var str = String(x.data().DUE_DATE);
@@ -240,3 +238,36 @@
             });
         });
     });
+
+    // Get the modal
+    var modal = document.getElementById("myModal1");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("delete");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close1")[0];
+
+    // When the user clicks the button, open the modal 
+    btn.onclick = function () {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+        setTimeout(function () {
+            location.reload();
+        }, 400);
+
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            setTimeout(function () {
+                location.reload();
+            }, 400);
+        }
+    }
