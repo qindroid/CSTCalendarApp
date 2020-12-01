@@ -31,18 +31,29 @@ window.onload = function () {
     if (!email || !pass) {
       return alert("Email and password both required!");
     }
-    const signUpPromise = firebase.auth().createUserWithEmailAndPassword(email, pass)
-    
-      alert("Welcome to the CST family!");
-      window.location = "/home.html";
+    console.log(pass);
+    console.log(email);
 
-    //THIS WRITES IT TO THE DATABASE; DONT CHANGE
-    db.collection('student').add({
-      STU_NAME: studentSignUpForm.name.value,
-      STU_SET: studentSignUpForm.set.value,
-      STU_EMAIL: studentSignUpForm.email.value,
-      STU_NICKNAME: studentSignUpForm.nickname.value
-    });
+    //const signUpPromise = firebase.auth().createUserWithEmailAndPassword(email, pass);
+    firebase.auth().createUserWithEmailAndPassword(email, pass).then((user) => {
+      //THIS WRITES IT TO THE DATABASE; DONT CHANGE
+        db.collection('student').add({
+          STU_NAME: studentSignUpForm.name.value,
+          STU_SET: studentSignUpForm.set.value,
+          STU_EMAIL: studentSignUpForm.email.value,
+          STU_NICKNAME: studentSignUpForm.nickname.value
+        });
+        alert("Welcome to CST ", name, "!");
+        window.location = "/home.html";
+      })
+      .catch((error) => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        alert(errorMessage);
+        // ..
+      });
+    
+
   });
 
   //SIGN IN AUTHENTICATION; DONT TOUCH
@@ -69,6 +80,7 @@ window.onload = function () {
         // ...
       })
       .catch((error) => {
+        alert("Not a valid user!");
         var errorCode = error.code;
         var errorMessage = error.message;
         alert(errorMessage);
@@ -90,18 +102,18 @@ window.onload = function () {
 
   });
 
-  firebase.auth().setPersistence(firebase.auth.Auth.Persistence.local)
-  .then(function() {
-    // Existing and future Auth states are now persisted in the current
-    // session only. Closing the window would clear any existing state even
-    // if a user forgets to sign out.
-    // ...
-    // New sign-in will be persisted with session persistence.
-    return firebase.auth().signInWithEmailAndPassword(email, pass);
-  })
-  .catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-  });
+  // firebase.auth().setPersistence(firebase.auth.Auth.Persistence.local)
+  // .then(function() {
+  //   // Existing and future Auth states are now persisted in the current
+  //   // session only. Closing the window would clear any existing state even
+  //   // if a user forgets to sign out.
+  //   // ...
+  //   // New sign-in will be persisted with session persistence.
+  //   return firebase.auth().signInWithEmailAndPassword(email, pass);
+  // })
+  // .catch(function(error) {
+  //   // Handle Errors here.
+  //   var errorCode = error.code;
+  //   var errorMessage = error.message;
+  // });
 }

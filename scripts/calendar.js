@@ -129,7 +129,7 @@
 
 
                         });
-
+                        db.collection('student').doc(doc.id).collection('tasks').doc('test').set({});
                         //add firebase databases
                         var taskForm = document.getElementById("taskForm");
                         addBtn = document.getElementById("addassignment");
