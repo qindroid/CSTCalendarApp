@@ -1,3 +1,44 @@
+.btn-primary {
+    color: #fff;
+    background-color: #005fbd;
+    border-color: solid white;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #0d345c;
+    border-color: white;
+}
+
+.btn-primary.focus,
+.btn-primary:focus {
+    box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .5)
+}
+
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.show>.btn-primary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .5)
+}
+
+.modal-header {
+    background-color: #005fbd;
+}
+
+.modal-title {
+    color: white;
+}
+
+.close {
+    float: right;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: white;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5
+}
+
 .bg-primary {
     background-color: #005fbd !important;
 }
