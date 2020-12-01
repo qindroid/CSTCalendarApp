@@ -123,6 +123,21 @@
                                         console.log("Error getting documents: ", error);
                                     });
 
+                                db.collection('student').doc(doc.id).collection('sync').where('ASSN_NAME', '==', delete_crs).where('DUE_DATE', '==', delete_date).get()
+                                    .then(function (querySnapshot) {
+                                        querySnapshot.forEach(function (doc1) {
+
+                                            // print doc id in consle for testing
+                                            console.log(doc1.id, " => ", doc1.data());
+
+                                            //delete the doc
+                                            db.collection("student").doc(doc.id).collection('sync').doc(doc1.id).delete();
+                                        });
+                                    })
+                                    .catch(function (error) {
+                                        console.log("Error getting documents: ", error);
+                                    });
+
                             }
 
                             $(".checkbox input:checked").parent().remove();
@@ -196,6 +211,25 @@
 
                                     }
                                 });
+                            });
+                        });
+
+                        var query = db.collection("student").doc(doc.id).collection('sync');
+                        var newquery = query.orderBy("DUE_DATE", "asc")
+                        newquery.get().then((s) => {
+
+                            var n = 0;
+                            s.forEach(function (x) {
+                                n += 1;
+                                //$("#recent-updates-table").append(`<tr><td class="bg-secondary text-white">` + x.data().CRS_NAME + `</td><td>` + x.data().ASSN_NAME + `</td><td>` + x.data().DUE_DATE + `</td></tr>`);
+                                console.log(n);
+
+                                //make sure checklist less than 20 lists
+                                if (n <= 20) {
+                                    //append firebase data to checklist
+                                    //Please dont change anything in append
+                                    $("#cb").append(`<div class="checkbox bg-secondary text-white"<label>` + n + " " + `<input type="checkbox" value=""><span>Course: ` + x.data().CRS_NAME + ` *` + x.data().ASSN_NAME + `@ DATE:` + x.data().DUE_DATE + `.</span></label></div> `);
+                                }
                             });
                         });
                     });

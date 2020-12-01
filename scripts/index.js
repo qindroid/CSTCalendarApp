@@ -11,10 +11,6 @@ window.onload = function () {
     container.classList.remove("right-panel-active");
   });
 
-
-
-
-
   const auth = firebase.auth();
   const studentSignUpForm = document.querySelector('#signup-form');
   const studentSignInForm = document.querySelector('#signin-form');
@@ -40,12 +36,31 @@ window.onload = function () {
       STU_NICKNAME: studentSignUpForm.nickname.value
     });
     db.collection('student').doc(email).collection('tasks').doc().set({
-      ASSN_NAME : name + ' has task',
-      CRS_NAME : '1113-Applied Math',
-      DUE_DATE : '2020-12-08',
-      TASK_DETAILS : "",
-      TASK_TYPE : ""
+      ASSN_NAME: name + ' has task',
+      CRS_NAME: '1113-Applied Math',
+      DUE_DATE: '2020-12-08',
+      TASK_DETAILS: "",
+      TASK_TYPE: ""
     });
+    // sync data from global data to personal data
+    var query = db.collection('tasks');
+    query.orderBy("date", "desc");
+    query.get().then((s) => {
+
+      var n = 0;
+      s.forEach(function (x) {
+        n += 1;
+
+        db.collection('student').doc(email).collection('sync').doc().set({
+          CRS_NAME: x.data().CRS_NAME,
+          ASSN_NAME: x.data().ASSN_NAME,
+          TASK_TYPE: x.data().TASK_TYPE,
+          DUE_DATE: x.data().DUE_DATE,
+          TASK_DETAILS: x.data().TASK_DETAILS,
+        });
+
+      });
+    }); 
     //const signUpPromise = firebase.auth().createUserWithEmailAndPassword(email, pass);
     firebase.auth().createUserWithEmailAndPassword(email, pass).then((user) => {
         alert("Welcome to CST ", name, "!");
@@ -58,7 +73,7 @@ window.onload = function () {
         // ..
       });
     //THIS WRITES IT TO THE DATABASE; DONT CHANGE
-    
+
   });
 
   //SIGN IN AUTHENTICATION; DONT TOUCH
@@ -91,34 +106,6 @@ window.onload = function () {
         alert(errorMessage);
       });
 
-    /*
-    const signInPromise = firebase.auth().signInWithEmailAndPassword(email, pass)
-    if(signInPromise){
-      signInPromise.catch(function(error) {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        alert(errorMessage);
-      })
-      const hi = "hi";
-    } else{
-      alert("Welcome back ", name, "!");
-      window.open(home.html)
-    }*/
-
   });
 
-  // firebase.auth().setPersistence(firebase.auth.Auth.Persistence.local)
-  // .then(function() {
-  //   // Existing and future Auth states are now persisted in the current
-  //   // session only. Closing the window would clear any existing state even
-  //   // if a user forgets to sign out.
-  //   // ...
-  //   // New sign-in will be persisted with session persistence.
-  //   return firebase.auth().signInWithEmailAndPassword(email, pass);
-  // })
-  // .catch(function(error) {
-  //   // Handle Errors here.
-  //   var errorCode = error.code;
-  //   var errorMessage = error.message;
-  // });
 }
