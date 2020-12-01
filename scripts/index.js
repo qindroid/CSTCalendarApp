@@ -33,16 +33,21 @@ window.onload = function () {
     }
     console.log(pass);
     console.log(email);
-
+    db.collection('student').doc(email).set({
+      STU_NAME: studentSignUpForm.name.value,
+      STU_SET: studentSignUpForm.set.value,
+      STU_EMAIL: studentSignUpForm.email.value,
+      STU_NICKNAME: studentSignUpForm.nickname.value
+    });
+    db.collection('student').doc(email).collection('tasks').doc().set(
+      {ASSN_NAME : name + ' has task',
+      CRS_NAME : '1113-Applied Math',
+      DUE_DATE : '2020-12-08',
+      TASK_DETAILS : "",
+      TASK_TYPE : ""
+    });
     //const signUpPromise = firebase.auth().createUserWithEmailAndPassword(email, pass);
     firebase.auth().createUserWithEmailAndPassword(email, pass).then((user) => {
-      //THIS WRITES IT TO THE DATABASE; DONT CHANGE
-        db.collection('student').add({
-          STU_NAME: studentSignUpForm.name.value,
-          STU_SET: studentSignUpForm.set.value,
-          STU_EMAIL: studentSignUpForm.email.value,
-          STU_NICKNAME: studentSignUpForm.nickname.value
-        });
         alert("Welcome to CST ", name, "!");
         window.location = "/home.html";
       })
@@ -52,8 +57,8 @@ window.onload = function () {
         alert(errorMessage);
         // ..
       });
+    //THIS WRITES IT TO THE DATABASE; DONT CHANGE
     
-
   });
 
   //SIGN IN AUTHENTICATION; DONT TOUCH

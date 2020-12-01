@@ -23,7 +23,7 @@ firebase.auth().onAuthStateChanged(function (user) {
                     newquery.get().then((s) => {
                         var n = 0;
                         s.forEach(function (x) {
-                            $("#recent-updates-table").append(`<tr class = " "><td>` + (n + 1) + `</td><td>` + x.data().CRS_NAME + `</td><td>` + x.data().ASSN_NAME + `</td><td><i><b>user:</b></i><br> ` + x.data().TASK_TYPE + ` </td><td>` + x.data().DUE_DATE + `</td><td>` + x.data().TASK_DETAILS + `</td></tr>`);
+                            $("#recent-updates-table").append(`<tr class = " "><td>` + (n + 1) + `</td><td>` + x.data().CRS_NAME + `</td><td>` + x.data().ASSN_NAME + `</td><td><i><b>personal:</b></i><br> ` + x.data().TASK_TYPE + ` </td><td>` + x.data().DUE_DATE + `</td><td>` + x.data().TASK_DETAILS + `</td></tr>`);
                             n += 1;
                         });
                     });
@@ -45,7 +45,7 @@ newquery.get().then((s) => {
     s.forEach(function (x) {
         $("#recent-updates-table").append(` 
           <tr>
-            <td>` + (n + 1) + `</td><td>` + x.data().CRS_NAME + `</td><td>` + x.data().ASSN_NAME + `</td><td><i><b>system: </b></i><br> ` + x.data().TASK_TYPE + `</td><td>` + x.data().DUE_DATE + `</td><td>` + x.data().TASK_DETAILS + `</td></tr>
+            <td>` + (n + 1) + `</td><td>` + x.data().CRS_NAME + `</td><td>` + x.data().ASSN_NAME + `</td><td><i><b>global: </b></i><br> ` + x.data().TASK_TYPE + `</td><td>` + x.data().DUE_DATE + `</td><td>` + x.data().TASK_DETAILS + `</td></tr>
         `);
 
         n += 1;
