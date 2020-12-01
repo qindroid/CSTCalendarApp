@@ -31,18 +31,18 @@ window.onload = function () {
     if (!email || !pass) {
       return alert("Email and password both required!");
     }
-    const signUpPromise = firebase.auth().createUserWithEmailAndPassword(email, pass)
-    
-      alert("Welcome to the CST family!");
-      window.location = "/home.html";
+    firebase.auth().createUserWithEmailAndPassword(email, pass)
 
     //THIS WRITES IT TO THE DATABASE; DONT CHANGE
-    db.collection('student').add({
+    db.collection('students').add({
+      
       STU_NAME: studentSignUpForm.name.value,
       STU_SET: studentSignUpForm.set.value,
       STU_EMAIL: studentSignUpForm.email.value,
       STU_NICKNAME: studentSignUpForm.nickname.value
     });
+    alert("Welcome to the CST family!");
+      window.location = "/home.html";
   });
 
   //SIGN IN AUTHENTICATION; DONT TOUCH
