@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Home</title>
-        <link rel="stylesheet" href="styles/home-style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous"/>
-        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="styles/home-style.css">
-      </head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="styles/home-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/home-style.css">
+</head>
+
 <body>
     <!-------------------------------------->
     <!-- The following is HTML for layout -->
@@ -19,13 +23,14 @@
     <!-- The following is HTML for layout -->
     <!-------------------------------------->
     <!-- Header Navigation Bar -->
-   <!-------------------------------------->
+    <!-------------------------------------->
     <!-- The following is HTML for layout -->
     <!-------------------------------------->
     <!-- Header Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <a class="navbar-brand active" href="home.html">Home<span class="sr-only">(current)</span></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -38,8 +43,16 @@
                     <a class="nav-link" href="courses.html">Courses</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="index.html" tabindex="-1" aria-disabled="false" id="logout-button">Logout</a>
+                    <a class="nav-link " href="index.html" tabindex="-1" aria-disabled="false"
+                        id="logout-button">Logout</a>
                 </li>
+                <li class="nav-item">
+                    <br></li>
+                    <li class="nav-item">
+                        <button type="button" id="monthbutton" class="btn btn-primary btn-sm"
+                            data-toggle="modal" data-target="#exampleModal">Add global tasks
+                            <span class="fas"></span>
+                        </button></li>
             </ul>
         </div>
     </nav>
@@ -47,22 +60,109 @@
     <div class="wrapper">
 
         <div class="recent-updates-header">
-              <p id="recent-updates-heading">Recent Updates</p>
+            <p id="recent-updates-heading">Recent Updates</p>
+
         </div>
-        
+
         <div class="recent-updates-notifications">
             <table id="recent-updates-table" class="recent-updates-table" style="overflow-x: auto;">
-                    <tr>
-                      <th>Number</th>
-                      <th>Course</th>
-                      <th>Name</th>
-                      <th>Type</th>
-                      <th>Due Date</th>
-                      <th>Details</th>
-                    </tr>
-                  </table>
+                <tr>
+                    <th>Number</th>
+                    <th>Course</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Due Date</th>
+                    <th>Details</th>
+                </tr>
+            </table>
         </div>
     </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Global Tasks Dont touch if you are not an admin</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="taskForm">
+                        <div class="form-group">
+                            <div div class="form-group">
+                                <label for="exampleFormControlTextarea1">password</label>
+                                <textarea id="password" class="form-control" id="exampleFormControlTextarea1"
+                                    name="password" rows="1"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlSelect1">Select Course</label>
+                                <select id="crsName" class="custom-select" name="crsName">
+                                    <option value="">Courses</option>
+                                    <option value="1113 - Applied Math">1113 - Applied Math</option>
+                                    <option value="1116 - Business Comm.">1116 - Business Comm.</option>
+                                    <option value="1510 - Java Programming">1510 - Java Programming</option>
+                                    <option value="1712 - Business Analysis">1712 - Business Analysis</option>
+                                    <option value="1537 - Web Development">1537 - Web Development</option>
+                                    <option value="1800 - Project 1">1800 - Project 1</option>
+                                    <option value="1100 - Fundamentals">1100 - Fundamentals</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Type</label>
+                                <select id="taskType" class="form-control" id="exampleFormControlSelect1"
+                                    name="taskType">
+                                    <option value="">Tasks</option>
+                                    <option value="Lab">Lab</option>
+                                    <option value="Assignment">Assignment</option>
+                                    <option value="Quiz">Quiz</option>
+                                    <option value="Group Assignment">Group Assignment</option>
+                                    <option value="Journal">Journal</option>
+                                    <option value="Exam">Exam</option>
+                                    <option value="Others">Others</option>
+                                </select>
+                            </div>
+                            <div div class="form-group">
+                                <label for="exampleFormControlTextarea1">Assignment Name</label>
+                                <textarea id="assignmentName" class="form-control" id="exampleFormControlTextarea1"
+                                    name="assignmentName" rows="1"></textarea>
+                            </div>
+                            <div class="modal-body">
+                                <label for="exampleFormControlSelect1">Add Due Date</label>
+                                <input id="dueDate" type="date" class="form-control" name="dueDate"
+                                    placeholder="Due Date">
+                            </div>
+                            <div div class="form-group">
+                                <label for="exampleFormControlTextarea1">Details</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" id="taskDetails"
+                                    name="taskDetails" rows="3"></textarea>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="closebutton" type="button" class="btn btn-secondary"
+                                    data-dismiss="modal">Close</button>
+                                <button id="addassignment" type="button" class="btn btn-primary">Add</button>
+                            </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Task add success!</p>
+        </div>
+
+    </div>
+
 
     <!----------------------------------------------->
     <!-- JS: Boostrap, Firebase, API related    -->
@@ -72,7 +172,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
 
-   
+
 
 
     <script>
@@ -89,19 +189,22 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         const db = firebase.firestore();
-
     </script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
     </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
     <script src="scripts/home.js"></script>
     <script src="scripts/firebase_api.js"></script>
-    
+
     <!--------------------------------------------------------------------->
     <!-- JS files: Your own JavaScript functions included here    -->
     <!--------------------------------------------------------------------->
 </body>
+
 </html>

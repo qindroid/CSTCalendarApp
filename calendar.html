@@ -56,8 +56,8 @@
                             <header>
                                 <h4 id="month" class="display-4 mb-4 text-center">
                                     December 2020
-                                    <button type="button" id="monthbutton" class="btn btn-primary btn-sm" data-toggle="modal"
-                                        data-target="#exampleModal">
+                                    <button type="button" id="monthbutton" class="btn btn-primary btn-sm"
+                                        data-toggle="modal" data-target="#exampleModal">
                                         <i class="fas fa-plus"></i>
                                     </button>
                                 </h4>
@@ -90,8 +90,7 @@
                                     </h5>
                                     <p class="d-sm-none">No events</p>
                                 </div>
-                                <div
-                                    class="day col-sm p-2 border border-left-0 border-top-0 text-truncate ">
+                                <div class="day col-sm p-2 border border-left-0 border-top-0 text-truncate ">
                                     <h5 class="row align-items-center">
                                         <span class="date col-1">1</span>
                                         <small class="col d-sm-none text-center text-muted">Tuesday</small>
@@ -405,7 +404,7 @@
 
                     <div class="container4">
                         <div>
-                            <h3>Following Tasks</h3>
+                            <h3>Following Personal Tasks</h3>
                         </div>
                         <button type="submit" id="delete">Delete</button>
                         <button type="submit" onClick="window.location.reload()" id="refresh2">Refresh</button>
@@ -421,73 +420,86 @@
         </div>
 
     </div>
-      <!-- Modal content for add assignment-->
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-      aria-hidden="true">
-      <div class="modal-dialog" role="document">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Add Task</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                  </button>
-              </div>
-              <div class="modal-body">
-                  <form id="taskForm">
-                      <div class="form-group">
-                          <div class="mb-3">
-                              <label for="exampleFormControlSelect1">Select Course</label>
-                              <select id="crsName" class="custom-select" name="crsName">
-                                  <option value="">Courses</option>
-                                  <option value="1113 - Applied Math">1113 - Applied Math</option>
-                                  <option value="1116 - Business Comm.">1116 - Business Comm.</option>
-                                  <option value="1510 - Java Programming">1510 - Java Programming</option>
-                                  <option value="1712 - Business Analysis">1712 - Business Analysis</option>
-                                  <option value="1537 - Web Development">1537 - Web Development</option>
-                                  <option value="1800 - Project 1">1800 - Project 1</option>
-                                  <option value="1100 - Fundamentals">1100 - Fundamentals</option>
-                              </select>
-                          </div>
 
-                          <div class="form-group">
-                              <label for="exampleFormControlSelect1">Type</label>
-                              <select id="taskType" class="form-control" id="exampleFormControlSelect1"
-                                  name="taskType">
-                                  <option value="">Tasks</option>
-                                  <option value="Lab">Lab</option>
-                                  <option value="Assignment">Assignment</option>
-                                  <option value="Quiz">Quiz</option>
-                                  <option value="Group Assignment">Group Assignment</option>
-                                  <option value="Journal">Journal</option>
-                                  <option value="Exam">Exam</option>
-                                  <option value="Others">Others</option>
-                              </select>
-                          </div>
-                          <div div class="form-group">
-                              <label for="exampleFormControlTextarea1">Assignment Name</label>
-                              <textarea id="assignmentName" class="form-control" id="exampleFormControlTextarea1"
-                                  name="assignmentName" rows="1"></textarea>
-                          </div>
-                          <div class="modal-body">
-                              <label for="exampleFormControlSelect1">Add Due Date</label>
-                              <input id="dueDate" type="date" class="form-control" name="dueDate"
-                                  placeholder="Due Date">
-                          </div>
-                          <div div class="form-group">
-                              <label for="exampleFormControlTextarea1">Details</label>
-                              <textarea class="form-control" id="exampleFormControlTextarea1" id="taskDetails"
-                                  name="taskDetails" rows="3"></textarea>
-                          </div>
-                          <div class="modal-footer">
-                              <button id="closebutton" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                              <button id="addassignment" type="button" class="btn btn-primary">Add</button>
-                          </div>
-                  </form>
-              </div>
+    <!-- The Modal -->
+    <div id="myModal1" class="modal1">
 
-          </div>
-      </div>
-  </div>
+        <!-- Modal content -->
+        <div class="modal1-content">
+            <span class="close1">&times;</span>
+            <p>Task delete success!</p>
+        </div>
+
+    </div>
+
+    <!-- Modal content for add assignment-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Personal Task</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="taskForm">
+                        <div class="form-group">
+                            <div class="mb-3">
+                                <label for="exampleFormControlSelect1">Select Course</label>
+                                <select id="crsName" class="custom-select" name="crsName">
+                                    <option value="">Courses</option>
+                                    <option value="1113 - Applied Math">1113 - Applied Math</option>
+                                    <option value="1116 - Business Comm.">1116 - Business Comm.</option>
+                                    <option value="1510 - Java Programming">1510 - Java Programming</option>
+                                    <option value="1712 - Business Analysis">1712 - Business Analysis</option>
+                                    <option value="1537 - Web Development">1537 - Web Development</option>
+                                    <option value="1800 - Project 1">1800 - Project 1</option>
+                                    <option value="1100 - Fundamentals">1100 - Fundamentals</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Type</label>
+                                <select id="taskType" class="form-control" id="exampleFormControlSelect1"
+                                    name="taskType">
+                                    <option value="">Tasks</option>
+                                    <option value="Lab">Lab</option>
+                                    <option value="Assignment">Assignment</option>
+                                    <option value="Quiz">Quiz</option>
+                                    <option value="Group Assignment">Group Assignment</option>
+                                    <option value="Journal">Journal</option>
+                                    <option value="Exam">Exam</option>
+                                    <option value="Others">Others</option>
+                                </select>
+                            </div>
+                            <div div class="form-group">
+                                <label for="exampleFormControlTextarea1">Assignment Name</label>
+                                <textarea id="assignmentName" class="form-control" id="exampleFormControlTextarea1"
+                                    name="assignmentName" rows="1"></textarea>
+                            </div>
+                            <div class="modal-body">
+                                <label for="exampleFormControlSelect1">Add Due Date</label>
+                                <input id="dueDate" type="date" class="form-control" name="dueDate"
+                                    placeholder="Due Date">
+                            </div>
+                            <div div class="form-group">
+                                <label for="exampleFormControlTextarea1">Details</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" id="taskDetails"
+                                    name="taskDetails" rows="3"></textarea>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="closebutton" type="button" class="btn btn-secondary"
+                                    data-dismiss="modal">Close</button>
+                                <button id="addassignment" type="button" class="btn btn-primary">Add</button>
+                            </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
 
 
@@ -503,7 +515,7 @@
 
 
 
-     <!----------------------------------------------->
+    <!----------------------------------------------->
     <!-- JS: Boostrap, Firebase, API related    -->
     <!----------------------------------------------->
     <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
