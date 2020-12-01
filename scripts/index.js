@@ -36,11 +36,11 @@ window.onload = function () {
       STU_NICKNAME: studentSignUpForm.nickname.value
     });
     db.collection('student').doc(email).collection('tasks').doc().set({
-      ASSN_NAME: name + ' has task',
-      CRS_NAME: '1113-Applied Math',
-      DUE_DATE: '2020-12-08',
-      TASK_DETAILS: "",
-      TASK_TYPE: ""
+      ASSN_NAME: 'Welcome to CST',
+      CRS_NAME: 'CST Introduction',
+      DUE_DATE: '2020-12-02',
+      TASK_DETAILS: "This is your checklist!",
+      TASK_TYPE: "Other"
     });
     // sync data from global data to personal data
     var query = db.collection('tasks');

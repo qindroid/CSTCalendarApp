@@ -4,6 +4,13 @@
     border-color: solid white;
 }
 
+#monthbutton{
+    justify-self: right;
+    width: 10em;
+    margin-bottom: 5pt;
+}
+
+
 .btn-primary:hover {
     color: #fff;
     background-color: #0d345c;
@@ -41,6 +48,7 @@
 *{
     font-family: 'Montserrat';
 }
+
 
 .bg-primary {
     background-color: #005fbd !important;
