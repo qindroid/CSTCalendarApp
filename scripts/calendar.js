@@ -243,8 +243,8 @@
     });
 
     var query = db.collection('tasks')
-    query.orderBy("date", "desc");
-    query.get().then((s) => {
+    var newquery = query.orderBy("DUE_DATE", "asc");
+    newquery.get().then((s) => {
 
         var n = 0;
         s.forEach(function (x) {
