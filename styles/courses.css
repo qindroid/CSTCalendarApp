@@ -10,3 +10,6 @@
     background: #c7dfff;
     text-align: center;
 }
+#logout-button{
+    cursor: pointer;
+}

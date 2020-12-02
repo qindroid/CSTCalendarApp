@@ -2,6 +2,10 @@
     font-family: 'Montserrat';
 }
 
+#logout-button{
+    cursor: pointer;
+}
+
 .modal1 {
     display: none;
     /* Hidden by default */
