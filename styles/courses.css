@@ -1,15 +1,27 @@
-*{
+/*
+ *This is css file for course html
+ *
+ *@ Author Jashan Rai | Giwoun Bae | Shawn Qin 
+ *@ Version 20.12.2
+ * 
+ */
+* {
     font-family: 'Montserrat';
 }
 
-.best-set{
+.best-set {
     font-size: 10pt;
 }
 
-.jumbotron{
+.jumbotron {
     background: #c7dfff;
     text-align: center;
 }
-#logout-button{
+
+#logout-button {
     cursor: pointer;
+}
+
+.bg-primary {
+    background-color: #005fbd !important;
 }

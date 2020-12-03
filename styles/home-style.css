@@ -1,10 +1,18 @@
+/*!
+ * This is css file for home html
+ *
+ *@ Author Jashan Rai | Giwoun Bae | Shawn Qin 
+ *@ Version 20.12.2
+ * 
+ */
+
 .btn-primary {
     color: #fff;
     background-color: #005fbd;
     border-color: solid white;
 }
 
-#monthbutton{
+#monthbutton {
     justify-self: right;
     width: 10em;
     margin-bottom: 5pt;
@@ -43,9 +51,10 @@
     line-height: 1;
     color: white;
     text-shadow: 0 1px 0 #fff;
-    opacity: .5}
-    
-*{
+    opacity: .5
+}
+
+* {
     font-family: 'Montserrat';
 }
 
@@ -54,7 +63,7 @@
     background-color: #005fbd !important;
 }
 
-.wrapper > div{
+.wrapper>div {
     padding: 1em;
 }
 
@@ -66,7 +75,7 @@
     grid-gap: 1em;
     justify-items: stretch;
     align-items: stretch;
-    
+
 }
 
 .recent-updates-header {
@@ -88,7 +97,7 @@
     display: grid;
     grid-column: 1/4;
     grid-row: 2/3;
-    
+
 }
 
 #recent-updates-notifications-text {
@@ -100,46 +109,53 @@
 
 
 table {
-    border-collapse:separate;
-    border:solid #005fbd;
-    border-radius:6px;
-    -moz-border-radius:6px;
+    border-collapse: separate;
+    border: solid #005fbd;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
     text-align: center;
     border-spacing: 0px;
 }
 
-td, th {
-    border-left:solid #005fbd;
-    border-top:solid #005fbd;
+td,
+th {
+    border-left: solid #005fbd;
+    border-top: solid #005fbd;
     text-align: center;
     padding: 0.5em 1em;
     padding: 1em;
 }
 
 th {
-    
+
     border-top: none;
 }
 
-td:first-child, th:first-child {
-     border-left: none;
+td:first-child,
+th:first-child {
+    border-left: none;
 }
 
 @media (max-width:768px) {
 
-    table, th, td {
+    table,
+    th,
+    td {
         text-align: center;
         border: 0.5px solid #005fbd;
         padding: 0rem;
         overflow-x: auto;
         overflow-y: auto;
-        font-size:9pt;
-      }
-      td {
-        width:0.1%;
+        font-size: 9pt;
+    }
+
+    td {
+        width: 0.1%;
         white-space: wrap;
-        }
-        td:first-child, th:first-child {
-            border-left: 0.5px solid #005fbd;
-       }
-  }
+    }
+
+    td:first-child,
+    th:first-child {
+        border-left: 0.5px solid #005fbd;
+    }
+}

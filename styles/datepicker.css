@@ -6,13 +6,17 @@
  * Released under the MIT license
  *
  * Date: 2020-09-29T14:46:09.037Z
+ *
+ * This is css file for datepicker html
+ *
+ *@ Author Jashan Rai | Giwoun Bae | Shawn Qin 
+ *@ Version 20.12.2
+ * 
  */
 
 .add-button-div{
   height: auto;
 }
-
-
 
  .datepicker-container {
   background-color: #fff;

@@ -1,8 +1,17 @@
+/*
+ *This is js file for login html
+ *
+ *@ Author Jashan Rai | Giwoun Bae | Shawn Qin 
+ *@ Version 20.12.2
+ * 
+ */
+
 window.onload = function () {
   const signUpButton = document.getElementById('signUp');
   const signInButton = document.getElementById('signIn');
   const container = document.getElementById('container');
 
+  //move the window when user use sign in or sign up
   signUpButton.addEventListener('click', () => {
     container.classList.add("right-panel-active");
   });
@@ -27,14 +36,15 @@ window.onload = function () {
     if (!email || !pass) {
       return alert("Email and password both required!");
     }
-    console.log(pass);
-    console.log(email);
+    //create data fors current user
     db.collection('student').doc(email).set({
       STU_NAME: studentSignUpForm.name.value,
       STU_SET: studentSignUpForm.set.value,
       STU_EMAIL: studentSignUpForm.email.value,
       STU_NICKNAME: studentSignUpForm.nickname.value
     });
+
+    //add a test data to personal task.
     db.collection('student').doc(email).collection('tasks').doc().set({
       ASSN_NAME: 'Welcome to CST',
       CRS_NAME: 'CST Introduction',
@@ -50,7 +60,7 @@ window.onload = function () {
       var n = 0;
       s.forEach(function (x) {
         n += 1;
-
+        //copy these data to student collection.
         db.collection('student').doc(email).collection('sync').doc().set({
           CRS_NAME: x.data().CRS_NAME,
           ASSN_NAME: x.data().ASSN_NAME,
@@ -70,7 +80,6 @@ window.onload = function () {
         var errorCode = error.code;
         var errorMessage = error.message;
         alert(errorMessage);
-        // ..
       });
     //THIS WRITES IT TO THE DATABASE; DONT CHANGE
 
@@ -78,7 +87,6 @@ window.onload = function () {
 
   //SIGN IN AUTHENTICATION; DONT TOUCH
   signinButtonForm.addEventListener('click', function () {
-
     var name = studentSignInForm.name.value;
     var email = studentSignInForm.email.value;
     var pass = studentSignInForm.password.value;
@@ -88,7 +96,6 @@ window.onload = function () {
 
     firebase.auth().signInWithEmailAndPassword(email, pass)
       .then((user) => {
-        //var user = firebase.auth().currentUser;
         var name, email, photoUrl, uid, emailVerified;
 
         if (user != null) {
@@ -97,7 +104,6 @@ window.onload = function () {
         }
         alert("Welcome back ", name, "!");
         window.location = "/home.html";
-        // ...
       })
       .catch((error) => {
         alert("Not a valid user!");
@@ -105,7 +111,5 @@ window.onload = function () {
         var errorMessage = error.message;
         alert(errorMessage);
       });
-
   });
-
 }

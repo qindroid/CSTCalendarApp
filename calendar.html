@@ -13,9 +13,7 @@
 
     <!-- Optional styles and scripts of your own -->
     <link rel="stylesheet" href="styles/calendar.css">
-
     <script src="https://kit.fontawesome.com/5b6c304f32.js" crossorigin="anonymous"></script>
-
 
 </head>
 
@@ -49,6 +47,7 @@
     </nav>
     <div class="allparent">
         <div class="all">
+            <!-- right side layout in all parent -->
             <div class="left">
                 <div class="container1">
                     <div class="recent-updates">
@@ -71,7 +70,6 @@
                     </div>
                 </div>
                 <div class="container1">
-
                     <div class="container4">
                         <div>
                             <h3>Individual Checklist</h3>
@@ -81,12 +79,11 @@
                     </div>
                     <div class="container">
                         <form id="cb">
-
                         </form>
                     </div>
                 </div>
-
             </div>
+            <!-- left side layout in all parent -->
             <div class="right container1">
                 <div class="container-cal">
                     <div class="calendar">
@@ -202,10 +199,6 @@
                                         <span class="col-1"></span>
                                     </h5>
                                     <p class="d-sm-none">No events</p>
-                                    <!-- <a class="event d-block p-1 pl-2 pr-2 mb-1 rounded text-truncate small bg-success text-white"
-                                        title="Test Event 2">Test Event 2</a>
-                                    <a class="event d-block p-1 pl-2 pr-2 mb-1 rounded text-truncate small bg-danger text-white"
-                                        title="Test Event 3">Test Event 3</a> -->
                                 </div>
                                 <div class="day col-sm p-2 border border-left-0 border-top-0 text-truncate ">
                                     <h5 class="row align-items-center">
@@ -304,11 +297,6 @@
                                         <span class="col-1"></span>
                                     </h5>
                                     <p class="d-sm-none">No events</p>
-                                    <!-- <a class="event d-block p-1 pl-2 pr-2 mb-1 rounded text-truncate small bg-primary text-white"
-                                        title="Test Event with Super Duper Really Long Title">Test Event with Super
-                                        Duper
-                                        Really
-                                        Long Title</a> -->
                                 </div>
                                 <div class="day col-sm p-2 border border-left-0 border-top-0 text-truncate ">
                                     <h5 class="row align-items-center">
@@ -410,27 +398,21 @@
                                     <p class="d-sm-none">No events</p>
                                 </div>
                                 <div class="w-100"></div>
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            
         </div>
-
     </div>
 
-    <!-- The Modal -->
+    <!-- The Modal for delete function-->
     <div id="myModal1" class="modal1">
-
         <!-- Modal content -->
         <div class="modal1-content">
             <span class="close1">&times;</span>
             <p>Task delete success!</p>
         </div>
-
     </div>
 
     <!-- Modal content for add assignment-->
@@ -497,15 +479,12 @@
                             </div>
                     </form>
                 </div>
-
             </div>
         </div>
     </div>
 
-
-
+    <!-- pop up windows for completation add a task -->
     <div id="myModal" class="modal">
-
         <!-- Modal content -->
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -513,8 +492,6 @@
         </div>
 
     </div>
-
-
 
     <!----------------------------------------------->
     <!-- JS: Boostrap, Firebase, API related    -->
@@ -540,7 +517,7 @@
     </script>
 
     <!--------------------------------------------------------------------->
-    <!-- JS files: Your own JavaScript functions included here    -->
+    <!-- JS files: Your own JavaScript functions included here    --------->
     <!--------------------------------------------------------------------->
     <script src="scripts/calendar.js"></script>
     <script src='bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js' type='text/javascript'></script>
