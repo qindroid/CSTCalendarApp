@@ -12,11 +12,10 @@
 * [Contributing](#Contributing)
 
 ## General Info
-This browser based web application to allow BCIT CST SET A students to schedule school related tasks, assignments, deadlines into one consolidated calendar and also view them all in one place.
-...
+This is a browser based web application to allow BCIT CST SET A students to schedule school related tasks, assignments, deadlines into one consolidated calendar and also view them all in one place, along with their professor contact information and lecture room links.
 	
 ## Technologies
-Technologies used for this Wproject:
+Technologies used for this project:
 * HTML, CSS
 * JavaScript
 * Bootstrap 
@@ -26,7 +25,7 @@ Technologies used for this Wproject:
 ## Features
 * Secured login
 * Personal data solution
-* using Firestore
+* using Firestore for real-time updates
 
 ## Usage
 
