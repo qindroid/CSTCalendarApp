@@ -1,0 +1,33 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "student",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "STU_EMAIL",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "STU_NAME",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "tasks",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "date",
+          "order": "DESCENDING"
+        },
+        {
+          "fieldPath": "month",
+          "order": "DESCENDING"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}
